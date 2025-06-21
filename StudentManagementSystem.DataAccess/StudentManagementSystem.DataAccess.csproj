@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\learnEntityFramwork\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\..\learnEntityFramwork\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C106E4A1-0A10-4740-B4FC-436B0CB66184}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StudentManagementSystem.DataAccess</RootNamespace>
+    <AssemblyName>StudentManagementSystem.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\learnEntityFramwork\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\learnEntityFramwork\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clsGloble.cs" />
+    <Compile Include="clsUserDataAccess.cs" />
+    <Compile Include="DatabaseContext\AppDbContext.cs" />
+    <Compile Include="Models\Attendance.cs" />
+    <Compile Include="Models\ClassSubject.cs" />
+    <Compile Include="Models\Grade.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\SchoolClass.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentClass.cs" />
+    <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AttendanceService.cs" />
+    <Compile Include="Services\AttendanceService.Validation.cs" />
+    <Compile Include="Services\ClassSubjectService.cs" />
+    <Compile Include="Services\ClassSubjectService.Validation.cs" />
+    <Compile Include="Services\GradeService.cs" />
+    <Compile Include="Services\GradeService.Validation.cs" />
+    <Compile Include="Services\NotificationService.cs" />
+    <Compile Include="Services\NotificationService.Validation.cs" />
+    <Compile Include="Services\PeopleService.cs" />
+    <Compile Include="Services\PeopleService.Vaildtion.cs" />
+    <Compile Include="Services\ProcedureServices\StudentDetailsDtoService.cs" />
+    <Compile Include="Services\SchoolClassService.cs" />
+    <Compile Include="Services\SchoolClassService.Vaildtion.cs" />
+    <Compile Include="Services\StaffService.cs" />
+    <Compile Include="Services\StaffService.Vaildtion.cs" />
+    <Compile Include="Services\StudentClassService.cs" />
+    <Compile Include="Services\StudentClassService.Validation.cs" />
+    <Compile Include="Services\StudentsService.cs" />
+    <Compile Include="Services\SubjectService.Vaildtion.cs" />
+    <Compile Include="Services\SubjectService.cs" />
+    <Compile Include="Services\TeacherService.cs" />
+    <Compile Include="Services\TeacherService.Vaildtion.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\UserService.Vaildtion.cs" />
+    <Compile Include="StoredProcedures\StudentDetailsDto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <Compile Include="Services\StudentService.Vaildtion.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\learnEntityFramwork\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\learnEntityFramwork\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\..\learnEntityFramwork\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\learnEntityFramwork\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\..\learnEntityFramwork\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\..\learnEntityFramwork\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+</Project>
