@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSelectsParent = new System.Windows.Forms.Button();
+            this.btnSelectPerson = new System.Windows.Forms.Button();
+            this.lblParentID = new System.Windows.Forms.Label();
+            this.lblPersonID = new System.Windows.Forms.Label();
             this.txtCurrentGradeLevel = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEnrollmentNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ucSaveBar1 = new SchoolManagementSystem.WinForm.UserControls.ucSaveBar();
             this.humansTable1 = new SchoolManagementSystem.WinForm.HumansTable();
-            this.lblPersonID = new System.Windows.Forms.Label();
-            this.lblParentID = new System.Windows.Forms.Label();
-            this.btnSelectPerson = new System.Windows.Forms.Button();
-            this.btnSelectsParent = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +58,44 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Form";
+            // 
+            // btnSelectsParent
+            // 
+            this.btnSelectsParent.Location = new System.Drawing.Point(656, 96);
+            this.btnSelectsParent.Name = "btnSelectsParent";
+            this.btnSelectsParent.Size = new System.Drawing.Size(99, 23);
+            this.btnSelectsParent.TabIndex = 7;
+            this.btnSelectsParent.Text = "Select Parent";
+            this.btnSelectsParent.UseVisualStyleBackColor = true;
+            // 
+            // btnSelectPerson
+            // 
+            this.btnSelectPerson.Location = new System.Drawing.Point(162, 99);
+            this.btnSelectPerson.Name = "btnSelectPerson";
+            this.btnSelectPerson.Size = new System.Drawing.Size(99, 23);
+            this.btnSelectPerson.TabIndex = 6;
+            this.btnSelectPerson.Text = "Select Person";
+            this.btnSelectPerson.UseVisualStyleBackColor = true;
+            // 
+            // lblParentID
+            // 
+            this.lblParentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblParentID.Location = new System.Drawing.Point(507, 99);
+            this.lblParentID.Name = "lblParentID";
+            this.lblParentID.Size = new System.Drawing.Size(143, 20);
+            this.lblParentID.TabIndex = 5;
+            this.lblParentID.Text = "ParentID";
+            this.lblParentID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblPersonID
+            // 
+            this.lblPersonID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblPersonID.Location = new System.Drawing.Point(12, 99);
+            this.lblPersonID.Name = "lblPersonID";
+            this.lblPersonID.Size = new System.Drawing.Size(143, 20);
+            this.lblPersonID.TabIndex = 4;
+            this.lblPersonID.Text = "PersonID";
+            this.lblPersonID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtCurrentGradeLevel
             // 
@@ -106,44 +144,6 @@
             this.humansTable1.Name = "humansTable1";
             this.humansTable1.Size = new System.Drawing.Size(762, 185);
             this.humansTable1.TabIndex = 0;
-            // 
-            // lblPersonID
-            // 
-            this.lblPersonID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblPersonID.Location = new System.Drawing.Point(12, 99);
-            this.lblPersonID.Name = "lblPersonID";
-            this.lblPersonID.Size = new System.Drawing.Size(143, 20);
-            this.lblPersonID.TabIndex = 4;
-            this.lblPersonID.Text = "PersonID";
-            this.lblPersonID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblParentID
-            // 
-            this.lblParentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblParentID.Location = new System.Drawing.Point(507, 99);
-            this.lblParentID.Name = "lblParentID";
-            this.lblParentID.Size = new System.Drawing.Size(143, 20);
-            this.lblParentID.TabIndex = 5;
-            this.lblParentID.Text = "ParentID";
-            this.lblParentID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnSelectPerson
-            // 
-            this.btnSelectPerson.Location = new System.Drawing.Point(162, 99);
-            this.btnSelectPerson.Name = "btnSelectPerson";
-            this.btnSelectPerson.Size = new System.Drawing.Size(99, 23);
-            this.btnSelectPerson.TabIndex = 6;
-            this.btnSelectPerson.Text = "Select Person";
-            this.btnSelectPerson.UseVisualStyleBackColor = true;
-            // 
-            // btnSelectsParent
-            // 
-            this.btnSelectsParent.Location = new System.Drawing.Point(656, 96);
-            this.btnSelectsParent.Name = "btnSelectsParent";
-            this.btnSelectsParent.Size = new System.Drawing.Size(99, 23);
-            this.btnSelectsParent.TabIndex = 7;
-            this.btnSelectsParent.Text = "Select Parent";
-            this.btnSelectsParent.UseVisualStyleBackColor = true;
             // 
             // frmManagementStudent
             // 

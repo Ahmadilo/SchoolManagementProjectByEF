@@ -51,6 +51,8 @@
             this.humansTable1.Name = "humansTable1";
             this.humansTable1.Size = new System.Drawing.Size(762, 265);
             this.humansTable1.TabIndex = 1;
+            this.humansTable1.EditClicked += new System.EventHandler<int>(this.EditClick);
+            this.humansTable1.DeleteClicked += new System.EventHandler<int>(this.DeleteClick);
             // 
             // frmStudentDetails
             // 

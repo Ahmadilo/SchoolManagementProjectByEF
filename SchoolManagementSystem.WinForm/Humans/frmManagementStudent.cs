@@ -53,6 +53,8 @@ namespace SchoolManagementSystem.WinForm.Humans
             }
         }
 
+        private bool? isEditOnlyForm = null;
+
         private void SetComponent()
         {
             this.humansTable1.EditClicked += EditClick;
@@ -80,6 +82,17 @@ namespace SchoolManagementSystem.WinForm.Humans
             SetComponent();
             this.PersonID = 1;
             this.ParentID = 1;
+        }
+
+        public frmManagementStudent(int StudentID)
+        {
+            InitializeComponent();
+            humansTable1.Visible = false;
+            AddInputFields();
+            SetComponent();
+            EditClick(null, StudentID);
+            isEditOnlyForm = true;
+            this.ClientSize = new Size(this.ClientSize.Width, 290);
         }
 
         private void frmManagementStudent_Load(object sender, EventArgs e)
@@ -111,6 +124,15 @@ namespace SchoolManagementSystem.WinForm.Humans
             Student.PersonID = PersonID;
             Student.ParentID = ParentID;
             ucSaveBar1.Save(Student);
+            if(isEditOnlyForm != null)
+            {
+                if(isEditOnlyForm.Value == true)
+                {
+                    this.Close();
+                    this.DialogResult = DialogResult.OK;
+                    return;
+                }
+            }
             RefreshStudentTable();
         }
 
@@ -132,6 +154,16 @@ namespace SchoolManagementSystem.WinForm.Humans
             }
 
             this.StudentID = StudentID;
+
+            if(clsPerson.Find(Student.PersonID) != null)
+            {
+                this.PersonID = Student.PersonID;
+            }
+
+            if(clsPerson.Find(Student.ParentID) != null)
+            {
+                this.ParentID = Student.ParentID;
+            }
 
             txtEnrollmentNumber.Text = Student.EnrollmentNumber;
             txtCurrentGradeLevel.Text = Student.CurrentGradeLevel.ToString();

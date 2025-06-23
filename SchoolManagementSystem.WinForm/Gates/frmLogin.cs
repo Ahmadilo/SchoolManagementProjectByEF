@@ -31,7 +31,8 @@ namespace SchoolManagementSystem.WinForm.Gates
 
             // If Login Success Then We Will Show Home Form
 
-            frmHome home = new frmHome();
+            frmParent home = new frmParent();
+            home.Text = "Home - " + clsLogin.UserLogin.Username.ToUpper();
 
             this.Hide();
             home.ShowDialog();

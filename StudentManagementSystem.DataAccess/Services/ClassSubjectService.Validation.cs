@@ -14,6 +14,8 @@ namespace StudentManagementSystem.DataAccess.Services
 
             if (classId <= 0)
                 errors.Add(ErrorStart + "ClassID must be a positive integer.");
+            else if(!new SchoolClassService().DoesClassExist(classId))
+                errors.Add(ErrorStart + "ClassID does not exist in the database.");
             // هنا يمكن إضافة تحقق من وجود الصف في قاعدة البيانات عبر خدمة SchoolClassService إن أردت
             return errors;
         }
@@ -24,6 +26,8 @@ namespace StudentManagementSystem.DataAccess.Services
 
             if (subjectId <= 0)
                 errors.Add(ErrorStart + "SubjectID must be a positive integer.");
+            else if (!new SubjectService().CheckSubjectId(subjectId))
+                errors.Add(ErrorStart + "SubjectID does not exist in the database.");
             // يمكن تحقق وجود المادة في SubjectService
             return errors;
         }
@@ -34,6 +38,8 @@ namespace StudentManagementSystem.DataAccess.Services
 
             if (teacherId <= 0)
                 errors.Add(ErrorStart + "TeacherID must be a positive integer.");
+            else if(!new TeacherService().DoesTeacherExsit(teacherId))
+                errors.Add(ErrorStart + "TeacherID does not exist in the database.");
             // يمكن تحقق وجود المعلم في TeacherService
             return errors;
         }

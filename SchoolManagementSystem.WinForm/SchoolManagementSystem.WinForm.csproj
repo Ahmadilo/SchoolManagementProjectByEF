@@ -92,6 +92,12 @@
     <Compile Include="Gates\frmParent.Designer.cs">
       <DependentUpon>frmParent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gates\frmTeacherHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gates\frmTeacherHome.Designer.cs">
+      <DependentUpon>frmTeacherHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="Humans\frmManagementStaff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,12 @@
     <Compile Include="Humans\frmStudentDetails.Designer.cs">
       <DependentUpon>frmStudentDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Humans\frmTeacherSideBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Humans\frmTeacherSideBar.Designer.cs">
+      <DependentUpon>frmTeacherSideBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\HumansTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -143,6 +155,12 @@
     <Compile Include="Humans\TableExtanstion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\ucListChoose.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucListChoose.Designer.cs">
+      <DependentUpon>ucListChoose.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucSaveBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -154,6 +172,36 @@
     </Compile>
     <Compile Include="UserControls\ucSaveContainer.Designer.cs">
       <DependentUpon>ucSaveContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherClasses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherClasses.Designer.cs">
+      <DependentUpon>ucTeacherClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherSider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherSider.Designer.cs">
+      <DependentUpon>ucTeacherSider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherStudentAttendances.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherStudentAttendances.Designer.cs">
+      <DependentUpon>ucTeacherStudentAttendances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherStudentGrads.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherStudentGrads.Designer.cs">
+      <DependentUpon>ucTeacherStudentGrads.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherSubjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherSubjects.Designer.cs">
+      <DependentUpon>ucTeacherSubjects.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilty.cs" />
     <EmbeddedResource Include="Assets\frmManagementShoolClass.resx">
@@ -174,6 +222,9 @@
     <EmbeddedResource Include="Gates\frmParent.resx">
       <DependentUpon>frmParent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gates\frmTeacherHome.resx">
+      <DependentUpon>frmTeacherHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Humans\frmManagementStaff.resx">
       <DependentUpon>frmManagementStaff.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Humans\frmStudentDetails.resx">
       <DependentUpon>frmStudentDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Humans\frmTeacherSideBar.resx">
+      <DependentUpon>frmTeacherSideBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\HumansTable.resx">
       <DependentUpon>HumansTable.cs</DependentUpon>
@@ -207,11 +261,29 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\ucListChoose.resx">
+      <DependentUpon>ucListChoose.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucSaveBar.resx">
       <DependentUpon>ucSaveBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucSaveContainer.resx">
       <DependentUpon>ucSaveContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucTeacherClasses.resx">
+      <DependentUpon>ucTeacherClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucTeacherSider.resx">
+      <DependentUpon>ucTeacherSider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucTeacherStudentAttendances.resx">
+      <DependentUpon>ucTeacherStudentAttendances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucTeacherStudentGrads.resx">
+      <DependentUpon>ucTeacherStudentGrads.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucTeacherSubjects.resx">
+      <DependentUpon>ucTeacherSubjects.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
