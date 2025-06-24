@@ -410,61 +410,8 @@ namespace learnEntityFramwork.ConsoleApp
 
         static void Main(string[] args)
         {
-            //Class1.AddPersonWithVaidtionExample();
-            //Class1.AddUserWithVaidtionExample();
-            //Class1.AddStudentWithValidationExample();
-            //Class1.AddStaffWithValidationExample();
-            //Class1.AddTeacherWithValidationExample();
-
-            //TestClsUser();
-            //TestclsPerson();
-            //TestclsStudent();
-            //TestclsStaff();
-            //TestclsTeacher();
-
-            //AssetVaildtionTest.TestValidation("Science Super Advanced Section A for Gifted Students", 13, "", 9999);
-            //Console.WriteLine("\n\n\n\n");
-            //AssetVaildtionTest.TestValidation("Science Super Advanced Section", 12, "", 9999);
-            //Console.WriteLine("\n\n\n\n");
-            //AssetVaildtionTest.TestValidationOfSchoolClass("Science Super Advanced Section", 12, "2020-01-20", 1);
-
-            //AssetVaildtionTest.TestValidationOfSubject("", "MATH-101-ADVANCED-TOO-LONG-CODE", new string('A', 600), new string('B', 100));
-            //Console.WriteLine("\n\n\n\n");
-
-            //AssetManpultionTest.TestSubjectService("Mathematics", "MATH1011", "Algebra and Calculus", "Science");
-
-
-            //AssetVaildtionTest.TestValidationOfSchoolClass("Class A", 6, "2020/2021", null);
-            //Console.WriteLine("\n\n\n\n");
-            ////AssetManpultionTest.TestSchoolClassService("Class A", 6, "2020/2021", 1);
-
-            //AssetObjectTest.TestSchoolClassCRUD(
-            //    className: "Class A",
-            //    gradeLevel: 6,
-            //    academicYear: "2024-2025",
-            //    teacherId: null // أو ضع رقم معرّف معلم صالح إن توفر
-            //);
-
-            //AssetVaildtionTest.TestValidationOfSubject("Mathematics", "MATH1011", "Algebra and Calculus", "Science");
-
-            //AssetObjectTest.TestSubjectCRUD(
-            //    name: "Mathematics",
-            //    code: "MATH1011",
-            //    description: "Algebra and Calculus",
-            //    department: "Science"
-            //);
-
-            TestActvitValidation();
-            //TestActvitsMunpultion();
-
-            //StudentDetailsDto.PrintStudentDetailsHeader();
-
-            //List<StudentDetailsDto> studentDetails = StudentDetailsDtoService.GetAllStudentDetails();
-
-            //foreach (var student in studentDetails)
-            //{
-            //    StudentDetailsDto.PrintStudentDetailsRow(student);
-            //}
+            TeacherUX.DisplayTeacherClasses();
+            TeacherUX.DisplayTeacherSubjects();
         }
     }
 }

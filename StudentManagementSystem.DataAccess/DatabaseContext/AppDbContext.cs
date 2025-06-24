@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using StudentManagementSystem.DataAccess.Models;
+using StudentManagementSystem.DataAccess.Views;
 
 namespace StudentManagementSystem.DataAccess.DatabaseContext
 {
@@ -29,5 +30,15 @@ namespace StudentManagementSystem.DataAccess.DatabaseContext
         public DbSet<Grade> Grades { get; set; }
         public DbSet<ClassSubject> ClassSubjects { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
+
+        public DbSet<ClassSubjectForTeacher> ClassSubjectsWithTeachers { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            // تأكد من تعريف مفتاح رئيسي للـ View
+            modelBuilder.Entity<ClassSubjectForTeacher>().HasKey(c => c.SubjectID);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
