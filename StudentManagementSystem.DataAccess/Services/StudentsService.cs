@@ -4,6 +4,7 @@ using System.Linq;
 using StudentManagementSystem.DataAccess.Models;
 using StudentManagementSystem.DataAccess.DatabaseContext;
 using System.Data.Entity.Validation;
+using System.Linq.Expressions;
 
 namespace StudentManagementSystem.DataAccess.Services
 {
@@ -133,5 +134,44 @@ namespace StudentManagementSystem.DataAccess.Services
                 return context.Students.Any(s => s.EnrollmentNumber == enrollmentNumber && s.StudentID != id);
             }
         }
+
+        public List<Student> GetAllStudentInNotClasses()
+        {
+            try
+            {
+                using (var db = new AppDbContext())
+                {
+                    List<int> StudentIDInClass = new StudentClassService().GetAllStudentIDsInClass();
+                    if (StudentIDInClass == null || StudentIDInClass.Count == 0)
+                        return new List<Student>();
+                    return db.Students
+                             .Where(s => !StudentIDInClass.Contains(s.StudentID))
+                             .ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.LogError(ExceptionHelper.GetRootException(e).Message);
+                return new List<Student>();
+            }
+        }
+
+        public List<Student> GetAllStudentByExpression(Expression<Func<Student, bool>> expression)
+        {
+            try
+            {
+                using (var db = new AppDbContext())
+                {
+                    return db.Students.Where(expression).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.LogError(ExceptionHelper.GetRootException(e.InnerException).Message);
+                return null;
+            }
+        }
+
+
     }
 }

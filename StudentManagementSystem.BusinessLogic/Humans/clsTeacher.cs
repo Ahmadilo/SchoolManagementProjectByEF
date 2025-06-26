@@ -142,5 +142,22 @@ namespace StudentManagementSystem.BusinessLogic.Humans
                 return false;
             }
         }
+
+        public static clsTeacher FindByUserID(int UserID)
+        {
+            if(UserID <= 0)
+            {
+                throw new ArgumentException("UserID must be greater than zero.", nameof(UserID));
+            }
+
+            Teacher teacher = new TeacherService().GetTeacherByUserID(UserID);
+
+            if(teacher == null)
+            {
+                return null;
+            }
+
+            return new clsTeacher(teacher);
+        }
     }
 }

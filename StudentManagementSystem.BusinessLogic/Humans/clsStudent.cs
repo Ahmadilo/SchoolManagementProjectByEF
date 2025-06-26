@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StudentManagementSystem.BusinessLogic.Activates;
+using StudentManagementSystem.BusinessLogic.Assets;
 using StudentManagementSystem.DataAccess.Models;
 using StudentManagementSystem.DataAccess.Services;
 
@@ -16,6 +18,7 @@ namespace StudentManagementSystem.BusinessLogic.Humans
         public DateTime EnrollmentDate { get; set; }
         public int ParentID { get; set; }
         public int CurrentGradeLevel { get; set; }
+        public string FullName { get { return clsPerson.Find(PersonID).FullName; } }
 
         public clsStudent()
         {
@@ -154,6 +157,20 @@ namespace StudentManagementSystem.BusinessLogic.Humans
                 _ErrorMessages.Add(_ErrorStart + "Failed to update student. Please check the data and try again.");
                 return false;
             }
+        }
+
+        public static List<clsStudent> GetAllStudentsNotInClasses()
+        {
+            List<Student> students = new clsStudent()._studentService.GetAllStudentInNotClasses();
+            if(students == null || students.Count == 0)
+                return new List<clsStudent>();
+            return students.Select(s => new clsStudent(s)).ToList();
+        }
+
+        public static List<clsStudent> GetAllStudentInClass(int ClassID)
+        {
+            int[] StudentIDs = clsStudentClass.GetAllStudentClasses().Where(sc => sc.ClassID == ClassID).Select(sc => sc.StudentID).ToArray();
+            return GetAllStudent().Where(s => StudentIDs.Contains(s.ID)).ToList();
         }
     }
 }

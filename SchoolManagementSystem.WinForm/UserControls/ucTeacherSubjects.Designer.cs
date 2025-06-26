@@ -74,6 +74,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ucTeacherSubjects";
             this.Size = new System.Drawing.Size(729, 416);
+            this.Load += new System.EventHandler(this.ucTeacherSubjects_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

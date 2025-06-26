@@ -21,6 +21,7 @@ namespace SchoolManagementSystem.WinForm.Gates
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             bool LoginResut = clsLogin.LoginByUsernameAndPassword(txtUsername.Text.Trim(),txtPassword.Text.Trim());
 
             if(!LoginResut)
@@ -31,8 +32,18 @@ namespace SchoolManagementSystem.WinForm.Gates
 
             // If Login Success Then We Will Show Home Form
 
-            frmParent home = new frmParent();
+            Form home = null;
+
+            if(clsLogin.UserLogin.Teacher != null)
+            {
+                home = new frmTeacherHome();
+            }
+            else
+            {
+                home = new frmParent();
+            }
             home.Text = "Home - " + clsLogin.UserLogin.Username.ToUpper();
+            this.Cursor= Cursors.Default;
 
             this.Hide();
             home.ShowDialog();

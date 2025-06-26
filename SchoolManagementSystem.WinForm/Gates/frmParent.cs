@@ -1,5 +1,6 @@
 ﻿using SchoolManagementSystem.WinForm.Assets;
 using SchoolManagementSystem.WinForm.Humans;
+using SchoolManagementSystem.WinForm.Apps;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SchoolManagementSystem.WinForm.Reports;
 
 namespace SchoolManagementSystem.WinForm.Gates
 {
@@ -45,9 +47,7 @@ namespace SchoolManagementSystem.WinForm.Gates
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmManagementUsers frm = new frmManagementUsers();
-
-            OpenChildForm(frm);
+            OpenChildForm(new frmManagementUsers());
         }
 
         private void personsToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -83,6 +83,21 @@ namespace SchoolManagementSystem.WinForm.Gates
         private void studentDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmStudentDetails());
+        }
+
+        private void addStudentToClassToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmAddStudentToClass());
+        }
+
+        private void addSubjectToClassToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmAddSubjectToClass());
+        }
+
+        private void classToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmClassAndStudentReport());
         }
     }
 }

@@ -32,8 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.humansTable1 = new SchoolManagementSystem.WinForm.HumansTable();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -70,9 +70,9 @@
             // humansTable1
             // 
             this.humansTable1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.humansTable1.Location = new System.Drawing.Point(3, 125);
+            this.humansTable1.Location = new System.Drawing.Point(3, 124);
             this.humansTable1.Name = "humansTable1";
-            this.humansTable1.Size = new System.Drawing.Size(578, 264);
+            this.humansTable1.Size = new System.Drawing.Size(578, 265);
             this.humansTable1.TabIndex = 2;
             // 
             // groupBox1
@@ -82,10 +82,18 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 65);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(578, 54);
+            this.groupBox1.Size = new System.Drawing.Size(578, 53);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(147, 17);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 1;
             // 
             // label2
             // 
@@ -97,14 +105,6 @@
             this.label2.Text = "label2";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(147, 17);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 1;
-            // 
             // ucTeacherClasses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,6 +112,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ucTeacherClasses";
             this.Size = new System.Drawing.Size(584, 392);
+            this.Load += new System.EventHandler(this.ucTeacherClasses_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

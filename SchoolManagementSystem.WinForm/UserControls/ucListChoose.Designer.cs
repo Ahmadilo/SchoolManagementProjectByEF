@@ -44,6 +44,7 @@
             this.lblTitle.Text = "Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblTitle.Click += new System.EventHandler(this.conClick);
+            this.lblTitle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblTitle_MouseClick);
             // 
             // pctIcon
             // 
@@ -54,6 +55,7 @@
             this.pctIcon.TabIndex = 1;
             this.pctIcon.TabStop = false;
             this.pctIcon.Click += new System.EventHandler(this.conClick);
+            this.pctIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblTitle_MouseClick);
             // 
             // ucListChoose
             // 

@@ -3,6 +3,7 @@ using StudentManagementSystem.DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace StudentManagementSystem.DataAccess.Services
 {
@@ -109,6 +110,21 @@ namespace StudentManagementSystem.DataAccess.Services
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        public Person GetPersonByExpreesion(Expression<Func<Person, bool>> expression)
+        {
+            try
+            {
+                using (var db = new AppDbContext())
+                {
+                    return db.People.FirstOrDefault(expression);
+                }
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
 

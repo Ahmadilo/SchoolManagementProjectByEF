@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using StudentManagementSystem.BusinessLogic.Activates;
 using StudentManagementSystem.DataAccess.Models;
 using StudentManagementSystem.DataAccess.Services;
 
@@ -128,6 +129,29 @@ namespace StudentManagementSystem.BusinessLogic.Assets
         public override string ToString()
         {
             return $"{ClassName} - Grade {GradeLevel} - {AcademicYear}";
+        }
+
+        public static List<clsSchoolClass> GetClassesByTeacher(int teacherId)
+        {
+            if (teacherId <= 0)
+                throw new ArgumentException("The TeacherID is not can be 0 or less then", nameof(teacherId));
+
+            List<SchoolClass> list = new SchoolClassService().GetClassesByExpression(sc => sc.HomeroomTeacherID == teacherId);
+            List<clsSchoolClass> result = new List<clsSchoolClass>();
+            for (int i = 0; i < list.Count; i++)
+            {
+                result.Add(new clsSchoolClass(list[i]));
+            }
+
+            return result;
+        }
+
+        public static List<clsSchoolClass> GetClassesForStudent(int studentID)
+        {
+            return clsStudentClass.GetAllStudentClasses()
+                                  .Where(sc => sc.StudentID == studentID)
+                                  .Select(sc => clsSchoolClass.Find(sc.ClassID))
+                                  .ToList();
         }
     }
 }

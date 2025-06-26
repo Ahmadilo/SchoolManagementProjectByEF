@@ -176,5 +176,22 @@ namespace StudentManagementSystem.BusinessLogic.Humans
 
             throw new NotImplementedException();
         }
+
+        public static clsPerson FindByUserID(int UserId)
+        {
+            if(UserId <= 0)
+            {
+                return null;
+            }
+
+            Person person = new PeopleService().GetPersonByExpreesion(p => p.UserID == UserId);
+
+            if (person == null)
+            {
+                return null;
+            }
+
+            return new clsPerson(person);
+        }
     }
 }

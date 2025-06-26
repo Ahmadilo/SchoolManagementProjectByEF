@@ -14,6 +14,22 @@ namespace SchoolManagementSystem.WinForm.Gates
 {
     public partial class frmTeacherHome : Form
     {
+        private void OpenTab(string Name, UserControl userControl)
+        {
+            try
+            {
+                TabPage tabPage = new TabPage(Name);
+                userControl.Dock = DockStyle.Fill; // مهم جداً لظهوره بشكل ملء التبويبة
+                tabPage.Controls.Add(userControl);
+                tabControl1.TabPages.Add(tabPage);
+                tabControl1.SelectedTab = tabPage; // لجعل التبويبة الجديدة مفعلة فوراً
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("خطأ: " + ex.Message);
+            }
+        }
+
         public frmTeacherHome()
         {
             InitializeComponent();
@@ -23,78 +39,64 @@ namespace SchoolManagementSystem.WinForm.Gates
             sideb.ClientSize = new Size(300, sideb.ClientSize.Height);
             sideb.Show();
             //MessageBox.Show("Width of SideBar is: " + sideb.ClientSize.Width);
-        
+
             ucClassChoose.Title = "Classes";
             ucSubjectChoose.Title = "Subjects";
             ucGradsChoose.Title = "Grades";
-            ucAttendanceChoose.Title = "Attendance";
+            ucAttendanceChoose.Title = "Attendances";
         }
 
         private void ucClassChoose_ChooseChange(object sender, EventArgs e)
         {
-            try
-            {
-                TabPage tabPage = new TabPage("Classes");
-                ucTeacherClasses uc = new ucTeacherClasses();
-                uc.Dock = DockStyle.Fill; // مهم جداً لظهوره بشكل ملء التبويبة
-                tabPage.Controls.Add(uc);
-                tabControl1.TabPages.Add(tabPage);
-                tabControl1.SelectedTab = tabPage; // لجعل التبويبة الجديدة مفعلة فوراً
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("خطأ: " + ex.Message);
-            }
+            OpenTab("Classes", new ucTeacherClasses());
         }
 
         private void ucSubjectChoose_ChooseChange(object sender, EventArgs e)
         {
-            try
-            {
-                TabPage tabPage = new TabPage("Subjects");
-                ucTeacherSubjects uc = new ucTeacherSubjects();
-                uc.Dock = DockStyle.Fill; // مهم جداً لظهوره بشكل ملء التبويبة
-                tabPage.Controls.Add(uc);
-                tabControl1.TabPages.Add(tabPage);
-                tabControl1.SelectedTab = tabPage; // لجعل التبويبة الجديدة مفعلة فوراً
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("خطأ: " + ex.Message);
-            }
+            OpenTab("Subjects", new ucTeacherSubjects());
         }
 
         private void ucGradsChoose_ChooseChange(object sender, EventArgs e)
         {
-            try
-            {
-                TabPage tabPage = new TabPage("Grads");
-                ucTeacherStudentGrads uc = new ucTeacherStudentGrads();
-                uc.Dock = DockStyle.Fill; // مهم جداً لظهوره بشكل ملء التبويبة
-                tabPage.Controls.Add(uc);
-                tabControl1.TabPages.Add(tabPage);
-                tabControl1.SelectedTab = tabPage; // لجعل التبويبة الجديدة مفعلة فوراً
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("خطأ: " + ex.Message);
-            }
+            OpenTab("Grads", new ucTeacherStudentGrads());
         }
 
         private void ucAttendanceChoose_ChooseChange(object sender, EventArgs e)
         {
-            try
+            OpenTab("Attendances", new ucTeacherStudentAttendances());
+        }
+
+        private void CloseTab(string Name)
+        {
+            for(int i = 0; i < tabControl1.TabPages.Count; i++)
             {
-                TabPage tabPage = new TabPage("Attendances");
-                ucTeacherStudentAttendances uc = new ucTeacherStudentAttendances();
-                uc.Dock = DockStyle.Fill; // مهم جداً لظهوره بشكل ملء التبويبة
-                tabPage.Controls.Add(uc);
-                tabControl1.TabPages.Add(tabPage);
-                tabControl1.SelectedTab = tabPage; // لجعل التبويبة الجديدة مفعلة فوراً
+                if (tabControl1.TabPages[i].Text == Name)
+                {
+                    tabControl1.TabPages.RemoveAt(i);
+                    break;
+                }
             }
-            catch (Exception ex)
+        }
+
+        private string GetTitle(UserControl control)
+        {
+            if(control is ucTeacherClasses) return "Classes";
+
+            if (control is ucTeacherSubjects) return "Subjects";
+
+            if (control is ucTeacherStudentGrads) return "Grads";
+
+            if (control is ucTeacherStudentAttendances) return "Attendances";
+
+            return string.Empty;
+        }
+
+        private void CloseOpenTab(object sender, EventArgs e)
+        {
+            if (sender is UserControl control && tabControl1.TabPages.Count != 0)
             {
-                MessageBox.Show("خطأ: " + ex.Message);
+                string title = GetTitle(control);
+                CloseTab(title);
             }
         }
     }

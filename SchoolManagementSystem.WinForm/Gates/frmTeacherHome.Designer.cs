@@ -30,26 +30,13 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tblTeacherList = new System.Windows.Forms.TableLayoutPanel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.ucAttendanceChoose = new SchoolManagementSystem.WinForm.UserControls.ucListChoose();
             this.ucGradsChoose = new SchoolManagementSystem.WinForm.UserControls.ucListChoose();
             this.ucSubjectChoose = new SchoolManagementSystem.WinForm.UserControls.ucListChoose();
             this.ucClassChoose = new SchoolManagementSystem.WinForm.UserControls.ucListChoose();
-            this.ucTeacherClasses1 = new SchoolManagementSystem.WinForm.UserControls.ucTeacherClasses();
-            this.ucTeacherSubjects1 = new SchoolManagementSystem.WinForm.UserControls.ucTeacherSubjects();
-            this.ucTeacherStudentGrads1 = new SchoolManagementSystem.WinForm.UserControls.ucTeacherStudentGrads();
-            this.ucTeacherStudentAttendances1 = new SchoolManagementSystem.WinForm.UserControls.ucTeacherStudentAttendances();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.tblTeacherList.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -88,63 +75,6 @@
             this.tblTeacherList.Size = new System.Drawing.Size(148, 444);
             this.tblTeacherList.TabIndex = 1;
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(157, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(640, 444);
-            this.tabControl1.TabIndex = 2;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.ucTeacherClasses1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(632, 418);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.ucTeacherSubjects1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(632, 418);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.ucTeacherStudentGrads1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(632, 418);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.ucTeacherStudentAttendances1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(632, 418);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
             // ucAttendanceChoose
             // 
             this.ucAttendanceChoose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -157,6 +87,7 @@
             this.ucAttendanceChoose.TabIndex = 3;
             this.ucAttendanceChoose.Title = "Title";
             this.ucAttendanceChoose.ChooseChange += new System.EventHandler(this.ucAttendanceChoose_ChooseChange);
+            this.ucAttendanceChoose.DoubleClickChange += new System.EventHandler(this.CloseOpenTab);
             // 
             // ucGradsChoose
             // 
@@ -170,6 +101,7 @@
             this.ucGradsChoose.TabIndex = 2;
             this.ucGradsChoose.Title = "Title";
             this.ucGradsChoose.ChooseChange += new System.EventHandler(this.ucGradsChoose_ChooseChange);
+            this.ucGradsChoose.DoubleClickChange += new System.EventHandler(this.CloseOpenTab);
             // 
             // ucSubjectChoose
             // 
@@ -183,6 +115,7 @@
             this.ucSubjectChoose.TabIndex = 1;
             this.ucSubjectChoose.Title = "Title";
             this.ucSubjectChoose.ChooseChange += new System.EventHandler(this.ucSubjectChoose_ChooseChange);
+            this.ucSubjectChoose.DoubleClickChange += new System.EventHandler(this.CloseOpenTab);
             // 
             // ucClassChoose
             // 
@@ -196,38 +129,16 @@
             this.ucClassChoose.TabIndex = 0;
             this.ucClassChoose.Title = "Title";
             this.ucClassChoose.ChooseChange += new System.EventHandler(this.ucClassChoose_ChooseChange);
+            this.ucClassChoose.DoubleClickChange += new System.EventHandler(this.CloseOpenTab);
             // 
-            // ucTeacherClasses1
+            // tabControl1
             // 
-            this.ucTeacherClasses1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucTeacherClasses1.Location = new System.Drawing.Point(3, 3);
-            this.ucTeacherClasses1.Name = "ucTeacherClasses1";
-            this.ucTeacherClasses1.Size = new System.Drawing.Size(626, 412);
-            this.ucTeacherClasses1.TabIndex = 0;
-            // 
-            // ucTeacherSubjects1
-            // 
-            this.ucTeacherSubjects1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucTeacherSubjects1.Location = new System.Drawing.Point(3, 3);
-            this.ucTeacherSubjects1.Name = "ucTeacherSubjects1";
-            this.ucTeacherSubjects1.Size = new System.Drawing.Size(626, 412);
-            this.ucTeacherSubjects1.TabIndex = 0;
-            // 
-            // ucTeacherStudentGrads1
-            // 
-            this.ucTeacherStudentGrads1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucTeacherStudentGrads1.Location = new System.Drawing.Point(3, 3);
-            this.ucTeacherStudentGrads1.Name = "ucTeacherStudentGrads1";
-            this.ucTeacherStudentGrads1.Size = new System.Drawing.Size(626, 412);
-            this.ucTeacherStudentGrads1.TabIndex = 0;
-            // 
-            // ucTeacherStudentAttendances1
-            // 
-            this.ucTeacherStudentAttendances1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucTeacherStudentAttendances1.Location = new System.Drawing.Point(3, 3);
-            this.ucTeacherStudentAttendances1.Name = "ucTeacherStudentAttendances1";
-            this.ucTeacherStudentAttendances1.Size = new System.Drawing.Size(626, 412);
-            this.ucTeacherStudentAttendances1.TabIndex = 0;
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(157, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(640, 444);
+            this.tabControl1.TabIndex = 2;
             // 
             // frmTeacherHome
             // 
@@ -241,11 +152,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tblTeacherList.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -259,13 +165,5 @@
         private UserControls.ucListChoose ucSubjectChoose;
         private UserControls.ucListChoose ucClassChoose;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private UserControls.ucTeacherClasses ucTeacherClasses1;
-        private UserControls.ucTeacherSubjects ucTeacherSubjects1;
-        private System.Windows.Forms.TabPage tabPage3;
-        private UserControls.ucTeacherStudentGrads ucTeacherStudentGrads1;
-        private System.Windows.Forms.TabPage tabPage4;
-        private UserControls.ucTeacherStudentAttendances ucTeacherStudentAttendances1;
     }
 }

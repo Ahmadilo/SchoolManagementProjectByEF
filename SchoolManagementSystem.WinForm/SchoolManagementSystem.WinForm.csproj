@@ -56,6 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apps\frmAddStudentToClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apps\frmAddStudentToClass.Designer.cs">
+      <DependentUpon>frmAddStudentToClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apps\frmAddSubjectToClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apps\frmAddSubjectToClass.Designer.cs">
+      <DependentUpon>frmAddSubjectToClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Assets\frmManagementShoolClass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +146,12 @@
     <Compile Include="Humans\frmTeacherSideBar.Designer.cs">
       <DependentUpon>frmTeacherSideBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmClassAndStudentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmClassAndStudentReport.Designer.cs">
+      <DependentUpon>frmClassAndStudentReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\HumansTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -204,6 +222,12 @@
       <DependentUpon>ucTeacherSubjects.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilty.cs" />
+    <EmbeddedResource Include="Apps\frmAddStudentToClass.resx">
+      <DependentUpon>frmAddStudentToClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apps\frmAddSubjectToClass.resx">
+      <DependentUpon>frmAddSubjectToClass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assets\frmManagementShoolClass.resx">
       <DependentUpon>frmManagementShoolClass.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Humans\frmTeacherSideBar.resx">
       <DependentUpon>frmTeacherSideBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmClassAndStudentReport.resx">
+      <DependentUpon>frmClassAndStudentReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\HumansTable.resx">
       <DependentUpon>HumansTable.cs</DependentUpon>
