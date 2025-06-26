@@ -18,7 +18,7 @@ if "%COMMENT%"=="" (
 )
 
 :: عرض حالة Git
-echo --- حالة المستودع ---
+echo --- Status of the Git repository ---
 git status
 
 :: تأكيد من المستخدم
