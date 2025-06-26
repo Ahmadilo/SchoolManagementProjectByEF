@@ -1,6 +1,6 @@
 ﻿namespace SchoolManagementSystem.WinForm
 {
-    partial class HumansTable
+    partial class ucShowTable
     {
         /// <summary> 
         /// Required designer variable.

@@ -152,11 +152,11 @@
     <Compile Include="Reports\frmClassAndStudentReport.Designer.cs">
       <DependentUpon>frmClassAndStudentReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\HumansTable.cs">
+    <Compile Include="UserControls\ucShowTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\HumansTable.Designer.cs">
-      <DependentUpon>HumansTable.cs</DependentUpon>
+    <Compile Include="UserControls\ucShowTable.Designer.cs">
+      <DependentUpon>ucShowTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Humans\frmManagementPeople.cs">
       <SubType>Form</SubType>
@@ -270,8 +270,8 @@
     <EmbeddedResource Include="Reports\frmClassAndStudentReport.resx">
       <DependentUpon>frmClassAndStudentReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\HumansTable.resx">
-      <DependentUpon>HumansTable.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\ucShowTable.resx">
+      <DependentUpon>ucShowTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Humans\frmManagementPeople.resx">
       <DependentUpon>frmManagementPeople.cs</DependentUpon>

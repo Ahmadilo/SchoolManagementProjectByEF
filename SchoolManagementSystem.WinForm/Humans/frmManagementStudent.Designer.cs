@@ -38,7 +38,7 @@
             this.txtEnrollmentNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ucSaveBar1 = new SchoolManagementSystem.WinForm.UserControls.ucSaveBar();
-            this.humansTable1 = new SchoolManagementSystem.WinForm.HumansTable();
+            this.humansTable1 = new SchoolManagementSystem.WinForm.ucShowTable();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -169,7 +169,7 @@
 
         #endregion
 
-        private HumansTable humansTable1;
+        private ucShowTable humansTable1;
         private UserControls.ucSaveBar ucSaveBar1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;

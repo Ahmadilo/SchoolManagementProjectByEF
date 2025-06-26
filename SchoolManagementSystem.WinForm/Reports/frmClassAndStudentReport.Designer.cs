@@ -36,8 +36,8 @@
             this.txtStudentName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.StudentTable = new SchoolManagementSystem.WinForm.HumansTable();
-            this.ClassTable = new SchoolManagementSystem.WinForm.HumansTable();
+            this.StudentTable = new SchoolManagementSystem.WinForm.ucShowTable();
+            this.ClassTable = new SchoolManagementSystem.WinForm.ucShowTable();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -162,10 +162,10 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private HumansTable ClassTable;
+        private ucShowTable ClassTable;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private HumansTable StudentTable;
+        private ucShowTable StudentTable;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.TextBox txtClassName;
         private System.Windows.Forms.TextBox txtStudentName;

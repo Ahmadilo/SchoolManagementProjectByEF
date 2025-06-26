@@ -33,7 +33,10 @@ namespace SchoolManagementSystem.WinForm.Reports
             ("CurrentGradeLevel", 3, true, false)
         };
 
-        private void SetTable(HumansTable Table, (string Name, int Index, bool Visible, bool Key)[] values, object DataSource)
+        ucShowTable.clsSettingButton btnDelete = new ucShowTable.clsSettingButton("", false);
+        ucShowTable.clsSettingButton btnEdit = new ucShowTable.clsSettingButton("Select", true);
+
+        private void SetTable(ucShowTable Table, (string Name, int Index, bool Visible, bool Key)[] values, object DataSource)
         {
             Table.values = values;
             Table.LoadData(DataSource);
@@ -50,6 +53,10 @@ namespace SchoolManagementSystem.WinForm.Reports
         public frmClassAndStudentReport()
         {
             InitializeComponent();
+            StudentTable.EditSetting = this.btnEdit;
+            StudentTable.DeleteSetting = this.btnDelete;
+            ClassTable.EditSetting = this.btnEdit;
+            ClassTable.DeleteSetting = this.btnDelete;
             RefreshTables();
         }
 
@@ -58,7 +65,7 @@ namespace SchoolManagementSystem.WinForm.Reports
             RefreshTables();
         }
 
-        private void FailterTable(HumansTable Table, (string Name, int Index, bool Visible, bool Key)[] values, object DataSourse)
+        private void FailterTable(ucShowTable Table, (string Name, int Index, bool Visible, bool Key)[] values, object DataSourse)
         {
             Table.values = values;
             Table.LoadData(DataSourse);
@@ -92,7 +99,7 @@ namespace SchoolManagementSystem.WinForm.Reports
             if (ClassID <= 0)
                 return;
             btnClear.Visible = true;
-            txtStudentName.Text = ClassData.First(c => c.ID == ClassID).ClassName;
+            txtClassName.Text = ClassData.First(c => c.ID == ClassID).ClassName;
             FailterTable(StudentTable, Studentvalues, clsStudent.GetAllStudentInClass(ClassID));
         }
     }

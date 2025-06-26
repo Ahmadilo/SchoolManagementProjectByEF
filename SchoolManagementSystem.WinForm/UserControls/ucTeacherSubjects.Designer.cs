@@ -30,7 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.humansTable1 = new SchoolManagementSystem.WinForm.HumansTable();
+            this.humansTable1 = new SchoolManagementSystem.WinForm.ucShowTable();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,6 +84,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private HumansTable humansTable1;
+        private ucShowTable humansTable1;
     }
 }

@@ -34,8 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ucSaveBar1 = new SchoolManagementSystem.WinForm.UserControls.ucSaveBar();
-            this.humansTable2 = new SchoolManagementSystem.WinForm.HumansTable();
-            this.humansTable1 = new SchoolManagementSystem.WinForm.HumansTable();
+            this.humansTable2 = new SchoolManagementSystem.WinForm.ucShowTable();
+            this.humansTable1 = new SchoolManagementSystem.WinForm.ucShowTable();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,8 +131,8 @@
 
         #endregion
 
-        private HumansTable humansTable1;
-        private HumansTable humansTable2;
+        private ucShowTable humansTable1;
+        private ucShowTable humansTable2;
         private UserControls.ucSaveBar ucSaveBar1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.humansTable1 = new SchoolManagementSystem.WinForm.HumansTable();
+            this.humansTable1 = new SchoolManagementSystem.WinForm.ucShowTable();
             this.SuspendLayout();
             // 
             // label1
@@ -72,6 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private HumansTable humansTable1;
+        private ucShowTable humansTable1;
     }
 }

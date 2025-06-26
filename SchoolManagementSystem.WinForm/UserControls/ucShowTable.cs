@@ -10,8 +10,22 @@ using System.Windows.Forms;
 
 namespace SchoolManagementSystem.WinForm
 {
-    public partial class HumansTable : UserControl
+    public partial class ucShowTable : UserControl
     {
+        public class clsSettingButton
+        {
+            public string Name;
+            public string Value;
+            public bool Visiblet;
+
+            public clsSettingButton(string Name, bool Visible)
+            {
+                this.Name = Name;
+                this.Visiblet = Visible;
+                this.Value = this.Name;
+            }
+        }
+
         public event EventHandler<int> EditClicked;
 
         public event EventHandler<int> DeleteClicked;
@@ -55,6 +69,10 @@ namespace SchoolManagementSystem.WinForm
         
         public (string Name, int index, bool Visible, bool Key)[] values = null;
 
+        public clsSettingButton DeleteSetting = new clsSettingButton("Delete", true);
+
+        public clsSettingButton EditSetting = new clsSettingButton("Edit", true);
+
         public string IDColumName { 
             get 
             {
@@ -65,26 +83,33 @@ namespace SchoolManagementSystem.WinForm
         {
             GetMaxDisplayIndex();
             // زر التعديل
-            _MaxIndex++;
-            var editColumn = new DataGridViewButtonColumn();
-            editColumn.Name = "Edit";
-            editColumn.HeaderText = "Edit";
-            editColumn.Text = "Edit";
-            editColumn.DisplayIndex = _MaxIndex + 10;
-            editColumn.UseColumnTextForButtonValue = true;
-            Table.Columns.Add(editColumn);
+            if(EditSetting.Visiblet)
+            {
+                _MaxIndex++;
+                var editColumn = new DataGridViewButtonColumn();
+                editColumn.Name = EditSetting.Name;
+                editColumn.HeaderText = EditSetting.Name;
+                editColumn.Text = EditSetting.Value;
+                editColumn.DisplayIndex = _MaxIndex + 10;
+                editColumn.UseColumnTextForButtonValue = true;
+                editColumn.Visible = EditSetting.Visiblet;
+                Table.Columns.Add(editColumn);
+            }
 
             // زر الحذف
-            _MaxIndex++;
-            var deleteColumn = new DataGridViewButtonColumn();
-            deleteColumn.Name = "Delete";
-            deleteColumn.HeaderText = "Delete";
-            deleteColumn.Text = "Delete";
-            deleteColumn.DisplayIndex = _MaxIndex + 10;
-            deleteColumn.UseColumnTextForButtonValue = true;
-            Table.Columns.Add(deleteColumn);
+            if(DeleteSetting.Visiblet)
+            {
+                _MaxIndex++;
+                var deleteColumn = new DataGridViewButtonColumn();
+                deleteColumn.Name = DeleteSetting.Name;
+                deleteColumn.HeaderText = DeleteSetting.Name;
+                deleteColumn.Text = DeleteSetting.Value;
+                deleteColumn.DisplayIndex = _MaxIndex + 10;
+                deleteColumn.UseColumnTextForButtonValue = true;
+                Table.Columns.Add(deleteColumn);
+            }
         }
-        public HumansTable()
+        public ucShowTable()
         {
             InitializeComponent();
         }
@@ -149,12 +174,12 @@ namespace SchoolManagementSystem.WinForm
 
             GetIDColumnIndex();
 
-            if (Table.Columns[e.ColumnIndex].Name == "Edit")
+            if (Table.Columns[e.ColumnIndex].Name == EditSetting.Name)
             {
                 Edit(Table.Rows[e.RowIndex], GetIDRecode(e.RowIndex));
             }
 
-            if (Table.Columns[e.ColumnIndex].Name == "Delete")
+            if (Table.Columns[e.ColumnIndex].Name == DeleteSetting.Name)
                 Delete(Table.Rows[e.RowIndex], GetIDRecode(e.RowIndex));
 
             if (Table.Columns[e.ColumnIndex].Name == "ID")

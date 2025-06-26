@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SubjectsTable = new SchoolManagementSystem.WinForm.HumansTable();
-            this.ClassesTable = new SchoolManagementSystem.WinForm.HumansTable();
+            this.SubjectsTable = new SchoolManagementSystem.WinForm.ucShowTable();
+            this.ClassesTable = new SchoolManagementSystem.WinForm.ucShowTable();
             this.ucSaveBar1 = new SchoolManagementSystem.WinForm.UserControls.ucSaveBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbDays = new System.Windows.Forms.ComboBox();
@@ -198,8 +198,8 @@
 
         #endregion
 
-        private HumansTable SubjectsTable;
-        private HumansTable ClassesTable;
+        private ucShowTable SubjectsTable;
+        private ucShowTable ClassesTable;
         private UserControls.ucSaveBar ucSaveBar1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtClassName;
