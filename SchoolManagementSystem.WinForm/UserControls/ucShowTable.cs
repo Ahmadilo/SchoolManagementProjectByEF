@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,12 +18,72 @@ namespace SchoolManagementSystem.WinForm
             public string Name;
             public string Value;
             public bool Visiblet;
+            public Type ColumnType;
+            public Func<int, object> ProccessLogic;
 
             public clsSettingButton(string Name, bool Visible)
             {
                 this.Name = Name;
                 this.Visiblet = Visible;
                 this.Value = this.Name;
+            }
+
+            public clsSettingButton(string Name, bool Visible, Type type, Func<int, object> proccessLogic)
+            {
+                this.Name = Name;
+                this.Visiblet = Visible;
+                this.Value = this.Name;
+                this.ColumnType = type;
+                ProccessLogic = proccessLogic;
+            }
+
+            public DataGridViewColumn ToColumn(int Index)
+            {
+                DataGridViewColumn column = null;
+
+                switch(ColumnType?.Name)
+                {
+                    case "DataGridViewTextBoxColumn":
+                        column = new DataGridViewTextBoxColumn
+                        {
+                            Name = Name,
+                            HeaderText = Name,
+                            Visible = Visiblet
+                        };
+                        break;
+                    case "DataGridViewButtonColumn":
+                        column = new DataGridViewButtonColumn
+                        {
+                            Name = Name,
+                            HeaderText = Name,
+                            Text = Name,
+                            UseColumnTextForButtonValue = true,
+                            Visible = Visiblet
+                        };
+                        break;
+                }
+
+                if (column != null)
+                {
+                    column.DisplayIndex = ++Index; // Adjust the display index to avoid conflicts
+                }
+
+                return column;
+            }
+
+            public void SetColumnValue(DataGridViewRow row, string IDColumnName)
+            {
+                if(ColumnType == typeof(DataGridViewTextBoxColumn))
+                {
+                    if(ProccessLogic != null)
+                    {
+                        row.Cells[Name].Value = ProccessLogic(Convert.ToInt32(row.Cells[IDColumnName].Value));
+                    }
+                    else
+                    {
+                        row.Cells[Name].Value = Value;
+                    }
+                }
             }
         }
 
@@ -73,6 +134,8 @@ namespace SchoolManagementSystem.WinForm
 
         public clsSettingButton EditSetting = new clsSettingButton("Edit", true);
 
+        public clsSettingButton[] AddtionlyColumns = null;
+
         public string IDColumName { 
             get 
             {
@@ -109,11 +172,53 @@ namespace SchoolManagementSystem.WinForm
                 Table.Columns.Add(deleteColumn);
             }
         }
+
+        private DataGridViewColumn SetNewColumn(clsSettingButton setting)
+        {
+            var column = new DataGridViewButtonColumn
+            {
+                Name = setting.Name,
+                HeaderText = setting.Name,
+                Text = setting.Value,
+                DisplayIndex = _MaxIndex + 10,
+                UseColumnTextForButtonValue = true,
+                Visible = setting.Visiblet
+            };
+
+            if (setting.ColumnType != null)
+            {
+                //column.ValueType = setting.ColumnType; // Uncomment if you want to set the type
+            }
+
+            return column;
+        }
+
+        private void AddColumns()
+        {
+            if(AddtionlyColumns == null || AddtionlyColumns.Length == 0)
+                return;
+
+            foreach (var columnSetting in AddtionlyColumns)
+            {
+                GetMaxDisplayIndex();
+                Table.Columns.Add(columnSetting.ToColumn(_MaxIndex));
+
+                foreach (DataGridViewRow row in Table.Rows)
+                {
+                    columnSetting.SetColumnValue(row, IDColumName);
+                }
+            }
+        }
+
+
         public ucShowTable()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// The Enter Point of User Control
+        /// </summary>
         public void LoadData(object DataSource)
         {
             _MaxIndex = 0;
@@ -124,7 +229,11 @@ namespace SchoolManagementSystem.WinForm
 
             EditColumns(values);
 
+            AddColumns();
+
             AddEditAndDeleteButton();
+
+            //Table.Refresh();
         }
 
         public void EditColumns((string Name, int index, bool Visible, bool Key)[] values)

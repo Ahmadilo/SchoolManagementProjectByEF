@@ -36,6 +36,16 @@ namespace SchoolManagementSystem.WinForm.Reports
         ucShowTable.clsSettingButton btnDelete = new ucShowTable.clsSettingButton("", false);
         ucShowTable.clsSettingButton btnEdit = new ucShowTable.clsSettingButton("Select", true);
 
+        ucShowTable.clsSettingButton[] AdditionlyColumnsInStudentTable = new[]
+        {
+            new ucShowTable.clsSettingButton("Count", true, typeof(DataGridViewTextBoxColumn), (id) => clsSchoolClass.GetClassesForStudent(id).Count)
+        };
+
+        ucShowTable.clsSettingButton[] AdditionlyColumnsInClassesTable = new[]
+        {
+            new ucShowTable.clsSettingButton("Count", true, typeof(DataGridViewTextBoxColumn), (id) => clsStudent.GetAllStudentInClass(id).Count)
+        };
+
         private void SetTable(ucShowTable Table, (string Name, int Index, bool Visible, bool Key)[] values, object DataSource)
         {
             Table.values = values;
@@ -55,8 +65,10 @@ namespace SchoolManagementSystem.WinForm.Reports
             InitializeComponent();
             StudentTable.EditSetting = this.btnEdit;
             StudentTable.DeleteSetting = this.btnDelete;
+            StudentTable.AddtionlyColumns = AdditionlyColumnsInStudentTable;
             ClassTable.EditSetting = this.btnEdit;
             ClassTable.DeleteSetting = this.btnDelete;
+            ClassTable.AddtionlyColumns = AdditionlyColumnsInClassesTable;
             RefreshTables();
         }
 
