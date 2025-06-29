@@ -18,7 +18,6 @@ namespace SchoolManagementSystem.WinForm
             InitializeComponent();
 
             MessageBox.Show("The Count of Users is: " + clsUser.GetAllUser().Count);
-            ucSaveBar1.Save<clsPerson>(new clsPerson());
         }
     }
 }

@@ -28,22 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucSaveBar1 = new SchoolManagementSystem.WinForm.UserControls.ucSaveBar();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.SuspendLayout();
             // 
-            // ucSaveBar1
+            // printDialog1
             // 
-            this.ucSaveBar1.Location = new System.Drawing.Point(89, 58);
-            this.ucSaveBar1.Name = "ucSaveBar1";
-            this.ucSaveBar1.Size = new System.Drawing.Size(615, 66);
-            this.ucSaveBar1.TabIndex = 0;
+            this.printDialog1.UseEXDialog = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.ucSaveBar1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -51,8 +47,7 @@
         }
 
         #endregion
-
-        private UserControls.ucSaveBar ucSaveBar1;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }
 

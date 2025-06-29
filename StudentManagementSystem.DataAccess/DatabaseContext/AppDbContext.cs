@@ -32,11 +32,13 @@ namespace StudentManagementSystem.DataAccess.DatabaseContext
         public DbSet<Attendance> Attendances { get; set; }
 
         public DbSet<ClassSubjectForTeacher> ClassSubjectsWithTeachers { get; set; }
+        public DbSet<StudentClassDetails> StudentClassDetails { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             // تأكد من تعريف مفتاح رئيسي للـ View
             modelBuilder.Entity<ClassSubjectForTeacher>().HasKey(c => c.SubjectID);
+            modelBuilder.Entity<StudentClassDetails>().HasKey(s => s.StudentID);
 
             base.OnModelCreating(modelBuilder);
         }

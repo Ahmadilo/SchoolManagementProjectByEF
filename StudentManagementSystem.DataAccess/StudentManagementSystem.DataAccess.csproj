@@ -94,6 +94,7 @@
     <Compile Include="Services\ViewService.cs" />
     <Compile Include="StoredProcedures\StudentDetailsDto.cs" />
     <Compile Include="Views\ClassSubjectForTeacher.cs" />
+    <Compile Include="Views\StudentClassDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

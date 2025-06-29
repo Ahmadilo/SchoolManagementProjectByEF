@@ -28,5 +28,21 @@ namespace StudentManagementSystem.DataAccess.Services
                 return null;
             }
         }
+
+        public static List<Entity> GetView<Entity>(Expression<Func<Entity, bool>> expression) where Entity : class
+        {
+            try
+            {
+                using(var db = new AppDbContext())
+                {
+                    return db.Set<Entity>().Where(expression).ToList();
+                }
+            }
+            catch(Exception e)
+            {
+                Logger.LogError(ExceptionHelper.GetRootException(e).Message);
+                return new List<Entity>();
+            }
+        }
     }
 }
