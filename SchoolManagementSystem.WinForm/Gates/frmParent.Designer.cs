@@ -192,7 +192,7 @@
             // 
             this.studentReportToolStripMenuItem.Name = "studentReportToolStripMenuItem";
             this.studentReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.studentReportToolStripMenuItem.Text = "Student Report";
+            this.studentReportToolStripMenuItem.Text = "S&tudent Report";
             this.studentReportToolStripMenuItem.Click += new System.EventHandler(this.studentReportToolStripMenuItem_Click);
             // 
             // frmParent

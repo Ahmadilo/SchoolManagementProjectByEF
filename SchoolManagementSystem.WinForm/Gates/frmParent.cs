@@ -107,7 +107,7 @@ namespace SchoolManagementSystem.WinForm.Gates
 
         private void studentReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new frmStudentSelecter());
         }
     }
 }

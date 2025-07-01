@@ -63,6 +63,19 @@ namespace SchoolManagementSystem.WinForm.UserControls
             }
         }
 
+        private void ClearStudentReport()
+        {
+            string ClearString = "[????]";
+            lblStudentName.Text = ClearString;
+            lblEnrolmentDate.Text = ClearString;
+            lblAge.Text = ClearString;
+            lblGradLevel.Text = ClearString;
+            lblClassName.Text = ClearString;
+            lblGender.Text = ClearString;
+            lblParentName.Text = ClearString;
+            lblPhone.Text = ClearString;
+        }
+
         public ucStudentCard()
         {
             InitializeComponent();
@@ -74,7 +87,10 @@ namespace SchoolManagementSystem.WinForm.UserControls
             set
             {
                 _studentId = value;
-                FillStudentReport(_studentId);
+                if (_studentId != -1)
+                    FillStudentReport(_studentId);
+                else
+                    ClearStudentReport();
             }
         }
     }
