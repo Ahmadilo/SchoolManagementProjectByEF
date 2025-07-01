@@ -15,68 +15,21 @@ namespace SchoolManagementSystem.WinForm.Reports
 {
     public partial class frmStudentReport : Form
     {
-        private int _studentId;
-
-        private void FillStudentReport(int studentId)
-        {
-            _studentId = studentId;
-            clsStudent student = clsStudent.Find(_studentId);
-
-            if (student == null)
-            {
-                MessageBox.Show("Student not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            DateTime birthDate = clsPerson.Find(student.PersonID).DateOfBirth;
-            int age = DateTime.Now.Year - birthDate.Year;
-
-            lblStudentName.Text = student.FullName;
-            lblEnrolmentDate.Text = student.EnrollmentDate.ToString("dd/MM/yyyy");
-            lblAge.Text = ((DateTime.Now.Month < birthDate.Month ||
-               (DateTime.Now.Month == birthDate.Month && DateTime.Now.Day < birthDate.Day))
-               ? age - 1 : age).ToString();
-            lblGradLevel.Text = student.CurrentGradeLevel.ToString();
-            if(clsStudentClass.GetAllStudentClasses().Any(sc => sc.StudentID == student.ID))
-            {
-                lblClassName.Text = clsStudentClass.GetAllStudentClasses()
-                                    .Where(sc => sc.StudentID == student.ID)
-                                    .Select(sc => clsSchoolClass.Find(clsStudentClass.Find( sc.ID).ClassID).ClassName)
-                                    .FirstOrDefault()
-                                    .ToString();
-            }
-            else
-            {
-                lblClassName.Text = "N/A";
-            }
-            lblGender.Text = clsPerson.Find(student.PersonID).Gender.Trim();
-
-            if(student.ParentID != -1)
-            {
-                clsPerson parent = clsPerson.Find(student.ParentID);
-                lblParentName.Text = parent.FullName;
-                lblPhone.Text = parent.PhoneNumber;
-            }
-            else
-            {
-                lblParentName.Text = "N/A";
-                lblPhone.Text = "N/A";
-            }
-        }
-
         public frmStudentReport()
         {
             InitializeComponent();
         }
 
-        public int StudentID
-        {
-            get { return _studentId; }
+        public int StudentID { 
+            get
+            {
+                return ucStudentCard1.StudentID;
+            }
             set
             {
-                _studentId = value;
-                FillStudentReport(_studentId);
+                ucStudentCard1.StudentID = value;
             }
+
         }
 
         private void frmStudentReport_Load(object sender, EventArgs e)

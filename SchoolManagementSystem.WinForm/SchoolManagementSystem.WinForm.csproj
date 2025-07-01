@@ -203,6 +203,12 @@
     <Compile Include="UserControls\ucSaveContainer.Designer.cs">
       <DependentUpon>ucSaveContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ucStudentCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucStudentCard.Designer.cs">
+      <DependentUpon>ucStudentCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucTeacherClasses.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -314,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucSaveContainer.resx">
       <DependentUpon>ucSaveContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucStudentCard.resx">
+      <DependentUpon>ucStudentCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucTeacherClasses.resx">
       <DependentUpon>ucTeacherClasses.cs</DependentUpon>
