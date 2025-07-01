@@ -14,6 +14,23 @@ namespace StudentManagementSystem.BusinessLogic.Humans
         public int StaffID { get; set; }
         public string SubjectSpecialization { get; set; }
 
+        public string FullName 
+        { 
+            get
+            {
+                if (StaffID <= 0)
+                    return "Unknown Teacher";
+
+                var staff = clsStaff.Find(StaffID);
+
+                var person = clsPerson.Find(staff?.PersonID ?? -1);
+
+                if(person != null)
+                    return person.FullName;
+                return "";
+            }
+        }
+
         public clsTeacher()
         {
             IsNew = true;

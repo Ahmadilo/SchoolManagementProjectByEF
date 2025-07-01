@@ -46,6 +46,7 @@
             this.classToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentsRepoeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.classesRepportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -169,7 +170,8 @@
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.classToolStripMenuItem,
             this.studentsRepoeToolStripMenuItem,
-            this.studentReportToolStripMenuItem});
+            this.studentReportToolStripMenuItem,
+            this.classesRepportToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "&Reports";
@@ -194,6 +196,13 @@
             this.studentReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.studentReportToolStripMenuItem.Text = "S&tudent Report";
             this.studentReportToolStripMenuItem.Click += new System.EventHandler(this.studentReportToolStripMenuItem_Click);
+            // 
+            // classesRepportToolStripMenuItem
+            // 
+            this.classesRepportToolStripMenuItem.Name = "classesRepportToolStripMenuItem";
+            this.classesRepportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.classesRepportToolStripMenuItem.Text = "&Classes Repport";
+            this.classesRepportToolStripMenuItem.Click += new System.EventHandler(this.classesRepportToolStripMenuItem_Click);
             // 
             // frmParent
             // 
@@ -233,5 +242,6 @@
         private System.Windows.Forms.ToolStripMenuItem classToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentsRepoeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem classesRepportToolStripMenuItem;
     }
 }
