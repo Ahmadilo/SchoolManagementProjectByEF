@@ -5,9 +5,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Helper;
 
 namespace SchoolManagementSystem.WinForm
 {
@@ -87,6 +89,24 @@ namespace SchoolManagementSystem.WinForm
             }
         }
 
+        public class clsSettingColumn
+        {
+            public string Name { get; set; }
+            public int Index { get; set; }
+            public bool Visible { get; set; }
+            public bool isEnableToEdit { get; set; }
+            public bool Key { get; set; }
+
+            public clsSettingColumn(string Name, int Index, bool Visible = true, bool isEnableToEdit = false, bool Key = false) 
+            {
+                this.Name = Name;
+                this.Index = Index;
+                this.Visible = Visible;
+                this.isEnableToEdit = isEnableToEdit;
+                this.Key = Key;
+            }
+        }
+
         public event EventHandler<int> EditClicked;
 
         public event EventHandler<int> DeleteClicked;
@@ -130,16 +150,31 @@ namespace SchoolManagementSystem.WinForm
         
         public (string Name, int index, bool Visible, bool Key)[] values = null;
 
+        public Type TypeRow { get; set; } = null;
+        public clsSettingColumn[] ColumnsSetting { get; set; } = null;
+
         public clsSettingButton DeleteSetting = new clsSettingButton("Delete", true);
 
         public clsSettingButton EditSetting = new clsSettingButton("Edit", true);
 
         public clsSettingButton[] AddtionlyColumns = null;
 
+        public int IndexKey 
+        { 
+            get
+            {
+                GetIDColumnIndex();
+                return _IndexKey;
+            }
+        }
+
         public string IDColumName { 
             get 
             {
-                return values.First(v => v.Key == true).Name.ToString().Trim();
+                if (values != null)
+                    return values.First(v => v.Key == true).Name.ToString().Trim();
+                else
+                    return ColumnsSetting.First(c => c.Key == true).Name.ToString().Trim();
             } }
 
         private void AddEditAndDeleteButton()
@@ -227,20 +262,45 @@ namespace SchoolManagementSystem.WinForm
             Table.Columns.Clear();
             Table.DataSource = DataSource;
 
-            EditColumns(values);
+            EditColumns();
 
             AddColumns();
 
             AddEditAndDeleteButton();
 
-            //Table.Refresh();
+            Table.Refresh();
         }
 
-        public void EditColumns((string Name, int index, bool Visible, bool Key)[] values)
+        public override void Refresh()
         {
-            this.values = values;
-            if (values == null)
+            Table.Refresh();
+        }
+
+        public void EditColumns()
+        {
+            if(values == null && ColumnsSetting == null)
                 return;
+
+            if (values == null)
+            {
+                foreach(DataGridViewColumn col in Table.Columns)
+                {
+                    for(int i = 0; i < ColumnsSetting.Length; i++)
+                    {
+                        if (col.DataPropertyName == ColumnsSetting[i].Name)
+                        {
+                            col.Visible = ColumnsSetting[i].Visible;
+                            col.DisplayIndex = ColumnsSetting[i].Index;
+                            if (Table.DataSource == null)
+                                col.ReadOnly = ColumnsSetting[i].isEnableToEdit;
+                            break;
+                        }
+                        else
+                            col.Visible = false;
+                    }
+                }
+                return;
+            }
 
             foreach(DataGridViewColumn column in Table.Columns)
             {
@@ -313,6 +373,73 @@ namespace SchoolManagementSystem.WinForm
                 if(Convert.ToInt32( Table.Rows[i].Cells[Index].Value) == Convert.ToInt32( RealValue))
                     Table.Rows[i].Cells[Index].Value = MeanValue;
             }
+        }
+
+        public bool IsNamePropContaindCells(DataGridViewCellCollection Cells, string Name)
+        {
+            for(int i = 0; i < Cells.Count; i++)
+            {
+                if (Cells[Name] != null)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public List<T> GetListOfRowsData<T>() where T : class
+        {
+            List<T> list = new List<T>();
+
+            foreach (DataGridViewRow row in Table.Rows)
+            {
+                if (row.IsNewRow) continue; // لتجاهل صف الإضافة الجديد في DataGridView
+
+                // الحصول على الدالة Find
+                MethodInfo findMethod = typeof(T).GetMethod("Find", BindingFlags.Static | BindingFlags.Public);
+                if (findMethod == null) continue;
+
+                // استخراج قيمة المفتاح الأساسي من الصف
+                object keyValue = Convert.ChangeType(row.Cells[IndexKey].Value, findMethod.GetParameters()[0].ParameterType);
+
+                // استدعاء الدالة Find للحصول على الكائن
+                object entityObj = null;
+                try
+                {
+                    entityObj = findMethod.Invoke(null, new object[] { keyValue });
+                    if (entityObj == null) continue;
+                }
+                catch(Exception e)
+                {
+                    Logger.LogExption(e, "logWin.txt");
+                }
+
+                // تعيين الخصائص من خلايا الجدول
+                PropertyInfo[] props = typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public);
+                foreach (PropertyInfo prop in props)
+                {
+                    if (!prop.CanWrite) continue;
+                    if (!IsNamePropContaindCells(row.Cells, prop.Name)) continue;
+
+                    object cellValue = row.Cells[prop.Name].Value;
+
+                    try
+                    {
+                        if (cellValue != null && cellValue != DBNull.Value)
+                        {
+                            object safeValue = Convert.ChangeType(cellValue, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+                            prop.SetValue(entityObj, safeValue);
+                        }
+                    }
+                    catch
+                    {
+                        // تجاهل القيم غير المتوافقة
+                    }
+                }
+
+                list.Add((T)entityObj);
+            }
+
+            return list;
         }
     }
 }

@@ -39,7 +39,7 @@ namespace StudentManagementSystem.DataAccess
         }
     }
 
-    public class Logger
+    public static class Logger
     {
         // المسار الكامل لملف الأخطاء (يمكنك تعديله حسب الحاجة)
         private static readonly string logFilePath = "error_log.txt";
