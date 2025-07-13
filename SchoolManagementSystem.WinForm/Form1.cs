@@ -22,6 +22,8 @@ namespace SchoolManagementSystem.WinForm
 
         private void btnTest_Click(object sender, EventArgs e)
         {
+
+
             List<clsStudent> StudentRecodes = ucShowTable1.GetListOfRowsData<clsStudent>();
 
 

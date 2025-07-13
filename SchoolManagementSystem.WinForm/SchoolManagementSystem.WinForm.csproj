@@ -222,6 +222,7 @@
     <Compile Include="Reports\frmStudentsReport.Designer.cs">
       <DependentUpon>frmStudentsReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Units\ExculExport.cs" />
     <Compile Include="UserControls\ucClassCard.cs">
       <SubType>UserControl</SubType>
     </Compile>

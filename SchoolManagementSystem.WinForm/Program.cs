@@ -1,6 +1,4 @@
-﻿using SchoolManagementSystem.WinForm.Assets;
-using SchoolManagementSystem.WinForm.Gates;
-using SchoolManagementSystem.WinForm.Humans;
+﻿using SchoolManagementSystem.WinForm.Gates;
 using System;
 using System.Windows.Forms;
 

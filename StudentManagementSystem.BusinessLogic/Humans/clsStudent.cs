@@ -13,12 +13,36 @@ namespace StudentManagementSystem.BusinessLogic.Humans
     public class clsStudent : clsBase<clsStudent>
     {
         private readonly StudentService _studentService = new StudentService();
+        private clsPerson _person = null;
+        private clsPerson _parent = null;
+
         public int PersonID { get; set; }
+        public clsPerson Person
+        {
+            get
+            {
+                return clsPublic.GetInstansOfID(PersonID, _person);
+            }
+        }
         public string EnrollmentNumber { get; set; }
         public DateTime EnrollmentDate { get; set; }
         public int ParentID { get; set; }
+        public clsPerson Parent
+        {
+            get
+            {
+                return clsPublic.GetInstansOfID(ParentID, _parent);
+            }
+        }
         public int CurrentGradeLevel { get; set; }
         public string FullName { get { return clsPerson.Find(PersonID).FullName; } }
+        public List<clsGrade> Grades
+        {
+            get
+            {
+                return clsGrade.GetAllGrades().Where(g => g.StudentID == this.ID).ToList();
+            }
+        }
 
         public clsStudent()
         {

@@ -1,4 +1,6 @@
-﻿using StudentManagementSystem.DataAccess.Models;
+﻿using StudentManagementSystem.BusinessLogic.Assets;
+using StudentManagementSystem.BusinessLogic.Humans;
+using StudentManagementSystem.DataAccess.Models;
 using StudentManagementSystem.DataAccess.Services;
 using System;
 using System.Collections.Generic;
@@ -9,10 +11,51 @@ namespace StudentManagementSystem.BusinessLogic.Activates
     public class clsClassSubject : clsBase<clsClassSubject>
     {
         private readonly ClassSubjectService _service = new ClassSubjectService();
-
+        private clsSchoolClass _schoolclass = null;
+        private clsTeacher _teacher = null;
+        private clsSubject _subject = null;
         public int ClassID { get; set; }
+        public clsSchoolClass SchoolClass
+        {
+            get
+            {
+                if( _schoolclass == null )
+                {
+                    _schoolclass = clsSchoolClass.Find(ClassID);
+                    return _schoolclass;
+                }
+
+                return _schoolclass;
+            }
+        }
         public int SubjectID { get; set; }
+        public clsSubject Subject
+        {
+            get
+            {
+                if(_subject == null)
+                {
+                    _subject = clsSubject.Find(ClassID);
+                    return _subject;
+                }
+
+                return _subject;
+            }
+        }
         public int TeacherID { get; set; }
+        public clsTeacher Teacher
+        {
+            get
+            {
+                if(_teacher == null)
+                {
+                    _teacher = clsTeacher.Find(TeacherID);
+                    return _teacher;
+                }
+
+                return _teacher;
+            }
+        }
         public string ScheduleDay { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
@@ -101,6 +144,11 @@ namespace StudentManagementSystem.BusinessLogic.Activates
         public static List<clsClassSubject> GetAllClassSubjects()
         {
             return new clsClassSubject().GetAll();
+        }
+
+        public static List<clsClassSubject> GetAllClassSubjects(Func<clsClassSubject, bool> func)
+        {
+            return GetAllClassSubjects().Where(func).ToList();
         }
 
         protected override bool _Add()

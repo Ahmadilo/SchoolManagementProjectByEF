@@ -3,14 +3,44 @@ using StudentManagementSystem.DataAccess.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using StudentManagementSystem.BusinessLogic.Humans;
 
 namespace StudentManagementSystem.BusinessLogic.Activates
 {
     public class clsGrade : clsBase<clsGrade>
     {
         private readonly GradeService _service = new GradeService();
+        private clsStudent _student = null;
+        private clsClassSubject _classSubject = null;
 
         public int StudentID { get; set; }
+        
+        public clsStudent Student 
+        { 
+            get 
+            {
+                if(_student == null)
+                {
+                    _student = clsStudent.Find(this.StudentID);
+                    return _student;
+                }
+
+                return _student;
+            } 
+        }
+        public clsClassSubject ClassSubject
+        {
+            get
+            {
+                if(_classSubject == null)
+                {
+                    _classSubject = clsClassSubject.Find(this.ClassSubjectID);
+                    return _classSubject;
+                }
+
+                return _classSubject;
+            }
+        }
         public int ClassSubjectID { get; set; }
         public string GradeType { get; set; }
         public DateTime GradeDate { get; set; }
@@ -105,6 +135,11 @@ namespace StudentManagementSystem.BusinessLogic.Activates
         public static List<clsGrade> GetAllGrades()
         {
             return new clsGrade().GetAll();
+        }
+
+        public static List<clsGrade> GetGrades(Func<clsGrade, bool> func)
+        {
+            return GetAllGrades().Where(func).ToList();
         }
 
         protected override bool _Add()
