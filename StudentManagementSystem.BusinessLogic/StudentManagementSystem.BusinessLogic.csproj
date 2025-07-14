@@ -56,9 +56,9 @@
     <Compile Include="clsPublic.cs" />
     <Compile Include="Features\Administrative\Auth\clsLogin.cs" />
     <Compile Include="Features\Operations\clsStudentDetails.cs" />
-    <Compile Include="Features\Operations\clsStudentExm.cs" />
     <Compile Include="Features\Operations\clsTeacherSubjects.cs" />
     <Compile Include="Features\Operations\Reports\clsStudentsReport.cs" />
+    <Compile Include="Features\Operations\Templates\tmpStudentExm.cs" />
     <Compile Include="Humans\clsPerson.cs" />
     <Compile Include="Humans\clsStaff.cs" />
     <Compile Include="Humans\clsStudent.cs" />

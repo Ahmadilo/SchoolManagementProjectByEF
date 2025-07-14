@@ -22,7 +22,7 @@ public class StudentGradesView
     public int? ClassID { get; set; }
     public string ClassName { get; set; }
     public int? GradeLevel { get; set; }
-    public int? AcademicYear { get; set; }
+    public string AcademicYear { get; set; }
     public int? HomeroomTeacherID { get; set; }
 
     // بيانات مادة الصف
@@ -42,7 +42,7 @@ public class StudentGradesView
     // بيانات الدرجات
     public int? GradeID { get; set; }
     public string GradeType { get; set; }
-    public DateTime? GradDate { get; set; }
+    public DateTime? GradeDate { get; set; }
     public decimal? Score { get; set; }
     public decimal? MaxScore { get; set; }
     public decimal? Weight { get; set; }

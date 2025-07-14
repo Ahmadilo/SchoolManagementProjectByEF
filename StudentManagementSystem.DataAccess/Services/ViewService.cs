@@ -35,7 +35,7 @@ namespace StudentManagementSystem.DataAccess.Services
             {
                 using(var db = new AppDbContext())
                 {
-                    return db.Set<Entity>().Where(expression).ToList();
+                    return db.Set<Entity>().AsNoTracking().Where(expression).ToList();
                 }
             }
             catch(Exception e)

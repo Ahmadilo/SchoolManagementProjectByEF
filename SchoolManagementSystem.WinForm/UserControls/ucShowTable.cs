@@ -173,8 +173,9 @@ namespace SchoolManagementSystem.WinForm
             {
                 if (values != null)
                     return values.First(v => v.Key == true).Name.ToString().Trim();
-                else
+                else if(ColumnsSetting != null)
                     return ColumnsSetting.First(c => c.Key == true).Name.ToString().Trim();
+                return "";
             } }
 
         private void AddEditAndDeleteButton()
@@ -440,6 +441,11 @@ namespace SchoolManagementSystem.WinForm
             }
 
             return list;
+        }
+
+        public DataGridView GetTable()
+        {
+            return this.Table;
         }
     }
 }
