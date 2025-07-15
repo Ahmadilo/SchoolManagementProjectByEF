@@ -42,13 +42,14 @@
             this.applcationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addStudentToClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSubjectToClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gradsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentExamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.classToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentsRepoeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.classesRepportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gradsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.studentExamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentExamsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -168,45 +169,6 @@
             this.addSubjectToClassToolStripMenuItem.Text = "Add Sub&ject To Class";
             this.addSubjectToClassToolStripMenuItem.Click += new System.EventHandler(this.addSubjectToClassToolStripMenuItem_Click);
             // 
-            // reportsToolStripMenuItem
-            // 
-            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.classToolStripMenuItem,
-            this.studentsRepoeToolStripMenuItem,
-            this.studentReportToolStripMenuItem,
-            this.classesRepportToolStripMenuItem});
-            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.reportsToolStripMenuItem.Text = "&Reports";
-            // 
-            // classToolStripMenuItem
-            // 
-            this.classToolStripMenuItem.Name = "classToolStripMenuItem";
-            this.classToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.classToolStripMenuItem.Text = "Class &And Student";
-            this.classToolStripMenuItem.Click += new System.EventHandler(this.classToolStripMenuItem_Click);
-            // 
-            // studentsRepoeToolStripMenuItem
-            // 
-            this.studentsRepoeToolStripMenuItem.Name = "studentsRepoeToolStripMenuItem";
-            this.studentsRepoeToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.studentsRepoeToolStripMenuItem.Text = "&Students Report";
-            this.studentsRepoeToolStripMenuItem.Click += new System.EventHandler(this.studentsRepoeToolStripMenuItem_Click);
-            // 
-            // studentReportToolStripMenuItem
-            // 
-            this.studentReportToolStripMenuItem.Name = "studentReportToolStripMenuItem";
-            this.studentReportToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.studentReportToolStripMenuItem.Text = "S&tudent Report";
-            this.studentReportToolStripMenuItem.Click += new System.EventHandler(this.studentReportToolStripMenuItem_Click);
-            // 
-            // classesRepportToolStripMenuItem
-            // 
-            this.classesRepportToolStripMenuItem.Name = "classesRepportToolStripMenuItem";
-            this.classesRepportToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.classesRepportToolStripMenuItem.Text = "&Classes Repport";
-            this.classesRepportToolStripMenuItem.Click += new System.EventHandler(this.classesRepportToolStripMenuItem_Click);
-            // 
             // gradsToolStripMenuItem
             // 
             this.gradsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -218,9 +180,56 @@
             // studentExamToolStripMenuItem
             // 
             this.studentExamToolStripMenuItem.Name = "studentExamToolStripMenuItem";
-            this.studentExamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.studentExamToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.studentExamToolStripMenuItem.Text = "Student &Exam";
             this.studentExamToolStripMenuItem.Click += new System.EventHandler(this.studentExamToolStripMenuItem_Click);
+            // 
+            // reportsToolStripMenuItem
+            // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.classToolStripMenuItem,
+            this.studentsRepoeToolStripMenuItem,
+            this.studentReportToolStripMenuItem,
+            this.classesRepportToolStripMenuItem,
+            this.studentExamsReportToolStripMenuItem});
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.reportsToolStripMenuItem.Text = "&Reports";
+            // 
+            // classToolStripMenuItem
+            // 
+            this.classToolStripMenuItem.Name = "classToolStripMenuItem";
+            this.classToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.classToolStripMenuItem.Text = "Class &And Student";
+            this.classToolStripMenuItem.Click += new System.EventHandler(this.classToolStripMenuItem_Click);
+            // 
+            // studentsRepoeToolStripMenuItem
+            // 
+            this.studentsRepoeToolStripMenuItem.Name = "studentsRepoeToolStripMenuItem";
+            this.studentsRepoeToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.studentsRepoeToolStripMenuItem.Text = "&Students Report";
+            this.studentsRepoeToolStripMenuItem.Click += new System.EventHandler(this.studentsRepoeToolStripMenuItem_Click);
+            // 
+            // studentReportToolStripMenuItem
+            // 
+            this.studentReportToolStripMenuItem.Name = "studentReportToolStripMenuItem";
+            this.studentReportToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.studentReportToolStripMenuItem.Text = "S&tudent Report";
+            this.studentReportToolStripMenuItem.Click += new System.EventHandler(this.studentReportToolStripMenuItem_Click);
+            // 
+            // classesRepportToolStripMenuItem
+            // 
+            this.classesRepportToolStripMenuItem.Name = "classesRepportToolStripMenuItem";
+            this.classesRepportToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.classesRepportToolStripMenuItem.Text = "&Classes Repport";
+            this.classesRepportToolStripMenuItem.Click += new System.EventHandler(this.classesRepportToolStripMenuItem_Click);
+            // 
+            // studentExamsReportToolStripMenuItem
+            // 
+            this.studentExamsReportToolStripMenuItem.Name = "studentExamsReportToolStripMenuItem";
+            this.studentExamsReportToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.studentExamsReportToolStripMenuItem.Text = "Student E&xams Report";
+            this.studentExamsReportToolStripMenuItem.Click += new System.EventHandler(this.studentExamsReportToolStripMenuItem_Click);
             // 
             // frmParent
             // 
@@ -263,5 +272,6 @@
         private System.Windows.Forms.ToolStripMenuItem classesRepportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gradsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentExamToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem studentExamsReportToolStripMenuItem;
     }
 }

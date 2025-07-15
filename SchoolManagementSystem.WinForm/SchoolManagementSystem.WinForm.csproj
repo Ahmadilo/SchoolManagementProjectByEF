@@ -204,6 +204,12 @@
     <Compile Include="Reports\frmClassesReport.Designer.cs">
       <DependentUpon>frmClassesReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmStudentExamReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStudentExamReport.Designer.cs">
+      <DependentUpon>frmStudentExamReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmStudentReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,12 @@
     </Compile>
     <Compile Include="UserControls\ucClassCard.Designer.cs">
       <DependentUpon>ucClassCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucExcelExport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucExcelExport.Designer.cs">
+      <DependentUpon>ucExcelExport.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ucShowTable.cs">
       <SubType>UserControl</SubType>
@@ -368,6 +380,9 @@
     <EmbeddedResource Include="Reports\frmClassesReport.resx">
       <DependentUpon>frmClassesReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStudentExamReport.resx">
+      <DependentUpon>frmStudentExamReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmStudentReport.resx">
       <DependentUpon>frmStudentReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucClassCard.resx">
       <DependentUpon>ucClassCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucExcelExport.resx">
+      <DependentUpon>ucExcelExport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucShowTable.resx">
       <DependentUpon>ucShowTable.cs</DependentUpon>

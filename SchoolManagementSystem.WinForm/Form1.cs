@@ -79,6 +79,8 @@ namespace SchoolManagementSystem.WinForm
                 new ucShowTable.clsSettingButton(Name: "Max", Visible: true, type: typeof(DataGridViewTextBoxColumn), proccessLogic: (id) => tmpStudentExm.Max)
             };
 
+            ucExcelExport1.SetData(StudentExmTemplate, ucShowTable1.ColumnsSetting.Select(c => c.Name).ToArray());
+
             ucShowTable1.LoadData(StudentExmTemplate);
             ucShowTable1.Refresh();
         }
