@@ -45,6 +45,8 @@ namespace SchoolManagementSystem.WinForm.UserControls
         public ucExcelExport()
         {
             InitializeComponent();
+
+            cmbExtensions.SelectedIndex = 1;
         }
 
         private object _rawData;
@@ -59,6 +61,19 @@ namespace SchoolManagementSystem.WinForm.UserControls
         public string FileName { get => txtFileName.Text; private set => txtFileName.Text = value; }
         public string ErrorMessage { get; private set; }
         public bool isValidtion { get; set; } = true;
+
+        private Type GetExportType()
+        {
+            switch(cmbExtensions.SelectedItem.ToString())
+            {
+                case ".pdf":
+                    return typeof(PdfExporter<>);
+                case ".xlsx":
+                    return typeof(ExcelExporter<>);
+            }
+
+            return null;
+        }
 
         private void btnExport_Click(object sender, EventArgs e)
         {
@@ -84,10 +99,10 @@ namespace SchoolManagementSystem.WinForm.UserControls
             try
             {
                 var fileName = txtFileName.Text.Trim();
-                var fullPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), fileName + ".xlsx");
+                var fullPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), fileName + cmbExtensions.SelectedItem.ToString());
 
                 Type dataType = _rawData.GetType().GetGenericArguments().FirstOrDefault();
-                var exporterType = typeof(ExcelExporter<>).MakeGenericType(dataType);
+                var exporterType = GetExportType().MakeGenericType(dataType);
                 dynamic exporter = Activator.CreateInstance(exporterType);
 
                 exporter.SetHeader(_headers);

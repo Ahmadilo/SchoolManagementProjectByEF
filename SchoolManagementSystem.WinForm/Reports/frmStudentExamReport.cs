@@ -58,6 +58,7 @@ namespace SchoolManagementSystem.WinForm.Reports
 
             ucExcelExport1.Visible = true;
             ucShowTable1.Visible = true;
+            ucShowTable1.Refresh();
         }
 
         private void frmStudentExamReport_Load(object sender, EventArgs e)
@@ -83,8 +84,9 @@ namespace SchoolManagementSystem.WinForm.Reports
                 new ucShowTable.clsSettingColumn(Name: "FullName", Index: 1),
                 new ucShowTable.clsSettingColumn(Name: "SubjectName", Index: 2),
                 new ucShowTable.clsSettingColumn(Name: "Mark", Index: 3),
-                new ucShowTable.clsSettingColumn(Name: "Grade", Index: 4),
+                new ucShowTable.clsSettingColumn(Name: "Grad", Index: 4),
             };
+
 
             ucExcelExport1.StartExport += ExportClick;
         }

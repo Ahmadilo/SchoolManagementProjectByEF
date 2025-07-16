@@ -33,11 +33,13 @@
             this.txtFileName = new System.Windows.Forms.TextBox();
             this.btnExport = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.cmbExtensions = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbExtensions);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtFileName);
             this.groupBox1.Controls.Add(this.btnExport);
@@ -90,6 +92,18 @@
             this.lblStatus.TabIndex = 0;
             this.lblStatus.Text = "Status:";
             // 
+            // cmbExtensions
+            // 
+            this.cmbExtensions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbExtensions.FormattingEnabled = true;
+            this.cmbExtensions.Items.AddRange(new object[] {
+            ".pdf",
+            ".xlsx"});
+            this.cmbExtensions.Location = new System.Drawing.Point(208, 26);
+            this.cmbExtensions.Name = "cmbExtensions";
+            this.cmbExtensions.Size = new System.Drawing.Size(121, 21);
+            this.cmbExtensions.TabIndex = 4;
+            // 
             // ucExcelExport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,5 +124,6 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.TextBox txtFileName;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbExtensions;
     }
 }

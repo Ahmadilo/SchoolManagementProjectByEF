@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using StudentManagementSystem.BusinessLogic;
 using StudentManagementSystem.BusinessLogic.Humans;
 using StudentManagementSystem.DataAccess.Services.ProcedureServices;
@@ -408,10 +410,40 @@ namespace learnEntityFramwork.ConsoleApp
             //Console.WriteLine("\n\n\n");
         }
 
+        class Employment
+        {
+            public string Name { get; set; }
+            public string Posistion { get; set; }
+            public int Salary { get; set; }
+            public string Email { get; set; }
+
+            public Employment(string name, string posistion, int salary, string email) 
+            {
+                this.Name = name;
+                this.Posistion = posistion;
+                this.Salary = salary;
+                this.Email = email;
+            }
+        }
+
         static void Main(string[] args)
         {
-            TeacherUX.DisplayTeacherClasses();
-            TeacherUX.DisplayTeacherSubjects();
+            //SimplePdfCreator.CreateSimplePdf("Test");
+
+            List<Employment> List = new List<Employment>
+            {
+                new Employment("Ahmad", "Teacher", 1000, "Email@mail.com"),
+                new Employment("Hamda", "Tester", 1000, "Email@mail.com"),
+                new Employment("Faadomo", "Clean Lady", 1000, "Email@mail.com"),
+                new Employment("Sayenb", "Salary", 1000, "Email@mail.com")
+            };
+
+            PdfExporter<Employment> pdfExporter = new PdfExporter<Employment>();
+
+            pdfExporter.SetHeader(new string[] { "Name", "Posistion", "Email" , "Salary" });
+            pdfExporter.AddData(List);
+
+            pdfExporter.SaveToFile(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TestTable1.pdf"));
         }
     }
 }

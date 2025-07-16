@@ -17,6 +17,7 @@ namespace StudentManagementSystem.BusinessLogic.Features.Operations.Templates
         private int _gradeID = -1;
         private int _classSubjectID = -1;
         private clsStudent _student = null;
+        private clsGrade _grade = null;
         public int StudentID { get { return _studenID; } }
         public int GradeID { get { return _gradeID; } }
         public string FullName { get => Student.FullName; }
@@ -26,7 +27,7 @@ namespace StudentManagementSystem.BusinessLogic.Features.Operations.Templates
         private string GradeType = "Exam";
         
         public clsStudent Student { get => clsPublic.GetInstansOfID(StudentID, _student); }
-        public clsGrade Grade { get; }
+        public clsGrade StudentGrade { get => clsPublic.GetInstansOfID(GradeID, _grade); }
 
         private tmpStudentExm(StudentGradesView sg)
         {
