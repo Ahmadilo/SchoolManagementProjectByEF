@@ -274,6 +274,7 @@ namespace SchoolManagementSystem.WinForm
 
         public override void Refresh()
         {
+            base.Refresh();
             Table.Refresh();
         }
 

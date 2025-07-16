@@ -21,10 +21,37 @@ namespace SchoolManagementSystem.WinForm.UserControls
             ClearInputsChange?.Invoke(this, EventArgs.Empty);
         }
 
+        public event EventHandler MarkChange;
+
+        protected virtual void onMarkChange()
+        {
+            MarkChange?.Invoke(this, EventArgs.Empty);
+        }
+
         private List<Control> _controls = new List<Control>();
         private bool _isValidated = true;
 
         public List<Control> InputControls => _controls;
+
+        public string FirstActiveText { get => btnSave.Text; set => btnSave.Text = value; }
+
+        public bool FirstActiveEnabel { get => btnSave.Enabled; set => btnSave.Enabled = value; }
+
+        public bool FirstActiveVisible { get => btnSave.Visible; set => btnSave.Visible = value; }
+
+        public string SecondActiveText { get => btnClear.Text; set => btnClear.Text = value; }
+
+        public bool SecondActiveEnabel { get => btnClear.Enabled; set => btnClear.Enabled = value; }
+
+        public bool SecondActiveVisible { get => btnClear.Visible; set => btnClear.Visible = value; }
+
+        public string ThirdActiveText { get => chAutoClear.Text; set => chAutoClear.Text = value; }
+
+        public bool ThirdActiveMark { get => chAutoClear.Checked; set => chAutoClear.Checked = value; }
+
+        public bool ThirdActiveEnabel { get => chAutoClear.Enabled; set => chAutoClear.Enabled = value; }
+
+        public bool ThirdActiveVisible { get => chAutoClear.Visible; set => chAutoClear.Visible = value; }
 
         public ucSaveBar()
         {
@@ -137,22 +164,25 @@ namespace SchoolManagementSystem.WinForm.UserControls
 
         public void ClearInputs()
         {
-            if (InputControls.Count == 0)
-                return;
-
-            foreach (Control control in InputControls)
+            if(SecondActiveText == "Clear")
             {
-                if (control is TextBox textBox)
-                    textBox.Clear();
+                if (InputControls.Count == 0)
+                    return;
 
-                if (control is DateTimePicker dateTimePicker)
-                    dateTimePicker.Value = DateTime.Today.AddYears(-18);
+                foreach (Control control in InputControls)
+                {
+                    if (control is TextBox textBox)
+                        textBox.Clear();
 
-                if (control is CheckBox checkBox)
-                    checkBox.Checked = false;
+                    if (control is DateTimePicker dateTimePicker)
+                        dateTimePicker.Value = DateTime.Today.AddYears(-18);
 
-                if (control is Label label)
-                    label.Text = string.Empty;
+                    if (control is CheckBox checkBox)
+                        checkBox.Checked = false;
+
+                    if (control is Label label)
+                        label.Text = string.Empty;
+                }
             }
 
             onClearInputs();
@@ -161,6 +191,11 @@ namespace SchoolManagementSystem.WinForm.UserControls
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearInputs();
+        }
+
+        private void chAutoClear_CheckedChanged(object sender, EventArgs e)
+        {
+            onMarkChange();
         }
     }
 }
