@@ -113,13 +113,4 @@ namespace StudentManagementSystem.BusinessLogic.Features.Operations.Templates
                 .ToList();
         }
     }
-
-    public static class Extensions
-    {
-        public static void Save(this List<tmpStudentExm> list)
-        {
-            foreach (var student in list)
-                student.Save();
-        }
-    }
 }

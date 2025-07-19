@@ -50,5 +50,5 @@ A comprehensive software system for managing school operations, developed indivi
 ---
 
 ## 👤 Developer
-- Name: [Your Name Here]
+- Name: [Ahmad Aden]
 - Status: Solo development – for learning and continuous improvement
