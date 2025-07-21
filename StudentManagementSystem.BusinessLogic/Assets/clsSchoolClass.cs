@@ -16,6 +16,14 @@ namespace StudentManagementSystem.BusinessLogic.Assets
         public string AcademicYear { get; set; }
         public int? TeacherID { get; set; }
 
+        public List<clsClassSubject> PeriodsList
+        {
+            get
+            {
+                return clsClassSubject.GetAllClassSubjects(p => p.ClassID == this.ID);
+            }
+        }
+
         public clsSchoolClass()
         {
             IsNew = true;

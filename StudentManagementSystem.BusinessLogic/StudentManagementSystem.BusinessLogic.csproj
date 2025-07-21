@@ -59,8 +59,9 @@
     <Compile Include="Features\Operations\clsTeacherSubjects.cs" />
     <Compile Include="Features\Operations\Reports\clsStudentsReport.cs" />
     <Compile Include="Features\Operations\Templates\Extensions.cs" />
-    <Compile Include="Features\Operations\Templates\tmpStudentAttendancs.cs" />
+    <Compile Include="Features\Operations\Templates\tmpAttendanceRecode.cs" />
     <Compile Include="Features\Operations\Templates\tmpStudentExm.cs" />
+    <Compile Include="Features\Services\clsAttendaceRecodesServices.cs" />
     <Compile Include="Humans\clsPerson.cs" />
     <Compile Include="Humans\clsStaff.cs" />
     <Compile Include="Humans\clsStudent.cs" />

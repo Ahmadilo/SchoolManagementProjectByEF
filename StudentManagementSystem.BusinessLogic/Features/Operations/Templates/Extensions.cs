@@ -19,17 +19,5 @@ namespace StudentManagementSystem.BusinessLogic.Features.Operations.Templates
             foreach(var student in array)
                 student.Save();
         }
-
-        public static void Save(this List<tmpStudentAttendancs> list)
-        {
-            foreach(var attendanc in list)
-                attendanc.Save();
-        }
-
-        public static void Save (this  tmpStudentAttendancs[] array)
-        {
-            foreach (var attendanc in array)
-                attendanc.Save();
-        }
     }
 }

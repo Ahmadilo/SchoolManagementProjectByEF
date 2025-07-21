@@ -35,7 +35,7 @@ namespace StudentManagementSystem.BusinessLogic.Activates
             {
                 if(_subject == null)
                 {
-                    _subject = clsSubject.Find(ClassID);
+                    _subject = clsSubject.Find(SubjectID);
                     return _subject;
                 }
 

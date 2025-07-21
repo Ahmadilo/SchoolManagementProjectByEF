@@ -159,7 +159,7 @@ namespace SchoolManagementSystem.WinForm
 
         public clsSettingButton[] AddtionlyColumns = null;
 
-        public int IndexKey 
+        public int IndexKey
         { 
             get
             {
@@ -274,8 +274,8 @@ namespace SchoolManagementSystem.WinForm
 
         public override void Refresh()
         {
-            base.Refresh();
             Table.Refresh();
+            base.Refresh();
         }
 
         public void EditColumns()
@@ -442,6 +442,46 @@ namespace SchoolManagementSystem.WinForm
             }
 
             return list;
+        }
+
+        public List<T> GetRecodes<T>()
+        {
+            List<T> Recodelist = new List<T>();
+
+            foreach(DataGridViewRow row in Table.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+                object entityObj = Activator.CreateInstance(typeof(T));
+
+                PropertyInfo[] props = typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public);
+
+                foreach(PropertyInfo prop in props)
+                {
+                    if (!prop.CanWrite) continue;
+                    if (!IsNamePropContaindCells(row.Cells, prop.Name)) continue;
+
+                    object cellValue = row.Cells[prop.Name].Value;
+
+                    try
+                    {
+                        if (cellValue != null && cellValue != DBNull.Value)
+                        {
+                            object safeValue = Convert.ChangeType(cellValue, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+                            prop.SetValue(entityObj, safeValue);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Logger.LogExption(e, "logWin.txt");
+                    }
+
+                }
+
+                Recodelist.Add((T)entityObj);
+            }
+
+            return Recodelist;
         }
 
         public DataGridView GetTable()
