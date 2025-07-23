@@ -55,7 +55,6 @@
     <Compile Include="clsBase.cs" />
     <Compile Include="clsPublic.cs" />
     <Compile Include="Features\Administrative\Auth\clsLogin.cs" />
-    <Compile Include="Features\Groups\StudentAttendaceReportGroup.cs" />
     <Compile Include="Features\Operations\clsStudentDetails.cs" />
     <Compile Include="Features\Operations\clsTeacherSubjects.cs" />
     <Compile Include="Features\Operations\Reports\clsStudentsReport.cs" />
