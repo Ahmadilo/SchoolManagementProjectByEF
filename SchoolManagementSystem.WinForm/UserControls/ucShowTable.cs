@@ -272,6 +272,11 @@ namespace SchoolManagementSystem.WinForm
             Table.Refresh();
         }
 
+        public object ExportData()
+        {
+            return Table.DataSource;
+        }
+
         public override void Refresh()
         {
             Table.Refresh();

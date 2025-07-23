@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using StudentManagementSystem.BusinessLogic.Activates;
@@ -72,9 +73,39 @@ namespace StudentManagementSystem.BusinessLogic.Features.Services
             return !isNew;
         }
 
-        public bool EditAttendance()
+        private List<tmpAttendanceRecode> EditAttendace_Validtion(List<tmpAttendanceRecode> rows)
         {
-            throw new NotImplementedException();
+            return rows;
+        }
+
+        private bool isEqoul(clsAttendance real, tmpAttendanceRecode Updated)
+        {
+            return true;
+        }
+
+        public bool EditAttendance(List<tmpAttendanceRecode> recodes)
+        {
+            var ValidatedRecodes = EditAttendace_Validtion(recodes);
+
+            List<bool> Results = new List<bool>();
+
+            foreach(var attandece in recodes)
+            {
+                var realAtt = clsAttendance.Find(attandece.GetAttendanceID());
+
+                if (realAtt == null)
+                    continue;
+
+                if (!isEqoul(real: realAtt, Updated: attandece))
+                    continue;
+
+                realAtt.Status = attandece.Present ? "Persont" : "Absant";
+                realAtt.Notes = string.IsNullOrEmpty(attandece.Note) ? null : attandece.Note;
+
+                Results.Add(realAtt.Save());
+            }
+
+            return Results.All(r => r == true);
         }
     }
 }

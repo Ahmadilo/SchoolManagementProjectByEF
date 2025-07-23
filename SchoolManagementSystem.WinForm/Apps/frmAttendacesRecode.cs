@@ -29,8 +29,32 @@ namespace SchoolManagementSystem.WinForm.Apps
 
         private clsAttendaceRecodesServices AttendaceRecodesServices = null;
 
+        private bool isSave 
+        { 
+            get
+            {
+                return (btnActive.Text == "Apply" && btnSave.Text == "Save");
+            }
+            set
+            {
+                if (isSave == value)
+                    return;
+
+                if(value == true)
+                {
+                    btnSave.Text = "Save";
+                    btnActive.Text = "Apply";
+                    return;
+                }
+
+                btnActive.Text = "Clear";
+                btnSave.Text = "Update";
+            }
+        }
+
         private void SetComponents()
         {
+            cmbClasses.Items.Clear();
             cmbClasses.Items.AddRange(
                 new string[] {"All"}
                 .Concat(
@@ -41,6 +65,10 @@ namespace SchoolManagementSystem.WinForm.Apps
                 .ToArray()
             );
 
+            cmbSubjects.SelectedIndex = -1;
+            cmbSubjects.Items.Clear();
+            cmbSubjects.Enabled = false;
+
             var today = DateTime.Today;
 
             dtpDate.MinDate = today.AddYears(-50);
@@ -48,6 +76,9 @@ namespace SchoolManagementSystem.WinForm.Apps
             dtpDate.Value = today;
 
             cmbClasses.SelectedIndex = 0;
+            ucShowTable1.Visible = false;
+
+            isSave = true;
         }
 
         public frmAttendacesRecode()
@@ -61,6 +92,13 @@ namespace SchoolManagementSystem.WinForm.Apps
             ucShowTable1.Visible = true;
             ucShowTable1.LoadData(AttendaceRecodesServices.GetNewStudentAttendanceRecodes());
             ucShowTable1.Refresh();
+        }
+
+        private void ClearClick()
+        {
+            SetComponents();
+
+            AttendaceRecodesServices = null;
         }
 
         private void cmbClasses_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,25 +151,52 @@ namespace SchoolManagementSystem.WinForm.Apps
 
         private void SaveClick()
         {
-            List<tmpAttendanceRecode> TamplateList = ucShowTable1.GetRecodes<tmpAttendanceRecode>();
+            List<tmpAttendanceRecode> TamplateList = ucShowTable1.ExportData() as List<tmpAttendanceRecode>;
             if(AttendaceRecodesServices.isNew)
             {
                 if (AttendaceRecodesServices.AddAttendance(TamplateList))
+                {
                     Utilty.SusseccfullyMessage("Add Attendance to Students");
+                    isSave = false;
+                }
                 else
                     Utilty.FaildedMessage("Faild To Add Attendace to Students");
             }
 
         }
 
+        private void UpdateClick()
+        {
+            List<tmpAttendanceRecode> TamplateList = ucShowTable1.ExportData() as List<tmpAttendanceRecode>;
+
+            if(!AttendaceRecodesServices.isNew)
+            {
+                //Utilty.SusseccfullyMessage("Update Funcation work count of list" + TamplateList.Any(a => a.GetAttendanceID() <= 0).ToString());
+                if (AttendaceRecodesServices.EditAttendance(TamplateList))
+                    Utilty.SusseccfullyMessage("Seccessfully Update Student Attandances");
+                else
+                    Utilty.FaildedMessage("Faild to Update Student Attandaces");
+            }
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SaveClick();
+            if(isSave)
+            {
+                SaveClick();
+            }
+            else
+            {
+                UpdateClick();
+            }
         }
 
         private void btnActive_Click(object sender, EventArgs e)
         {
-            ApplyClick();
+            if (isSave)
+                ApplyClick();
+            else
+                ClearClick();
         }
     }
 }

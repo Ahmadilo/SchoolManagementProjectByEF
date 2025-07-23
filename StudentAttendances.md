@@ -28,3 +28,22 @@
 
 - [✅] **Done**  
   > [System] Show confirmation or success message
+
+
+# ✅ Attendance Update Recording Flow Checklist
+
+## 🧑‍💻 User Actions & 🖥️ System Responses
+
+> Start Point: After **Done**
+
+- [] **Change Action Type from Save to Update**
+  > [System] After the Save Attandances Change button Text from "Save" to "Update"
+  > [System] Update The ShowTable with recodes that have Attandances ID
+
+- [] **User Edit the values in Attendances recodes**
+  > [User] User edit Attandaces recodes that Saves
+
+- [] **User Save the Updates**
+  > [User] Click the Update Button
+  > [System] Get
+
