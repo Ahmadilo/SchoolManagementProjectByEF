@@ -7,37 +7,36 @@ A comprehensive software system for managing school operations, developed indivi
 ## ✅ Completed Features
 
 ### 👥 People
-- ✅ User management (Admin, Teacher, Staff...)
-- ✅ Unified person entity (Person)
+- ✅ User management (Add, Edit, Delete, View)
+- ✅ Unified person entity (Add, Edit, Delete, View)
 - ✅ Student management (Add, Edit, Delete, View)
-- ✅ Teacher management (linked with subjects)
-- ✅ Staff management
+- ✅ Teacher management (Add, Edit, Delete, View)
+- ✅ Staff management (Add, Edit, Delete, View)
 
 ### 🏫 Assets
-- ✅ Subject management
-- ✅ Classroom management
+- ✅ Subject management (Add, Edit, Delete, View)
+- ✅ Classroom management (Add, Edit, Delete, View)
 
 ### 🛠️ Applications
-- ✅ Enroll student into a class
-- ✅ Assign subject to class with a teacher
+- ✅ Enroll student into a class (Add, Edit, Delete, View)
+- ✅ Assign subject to class with a teacher (Add, Edit, Delete, View)
+- ✅ Assign Attendentes to Students (Add, Edit)
 
 ### 📊 Reports
-- ✅ Student profile report
-- ✅ Teacher profile report
-- ✅ Student test scores report
-- ✅ Export reports to Excel
-- ✅ Export reports to PDF
+- ✅ Student profile report (singel card or rows of cards)
+- ✅ Teacher profile report (singel card or rows of cards)
+- ✅ Student test scores report (Table)
+- ✅ Export Table reports to Excel 
+- ✅ Export Table reports to PDF 
 
 ---
 
 ## 🚧 Upcoming Tasks (Improvements)
 
-| Task                             | Status  |
-|----------------------------------|---------|
-| Build the Students Attendentes.  | ⏳      |
-| Build the The Fialters To People | ⏳      |
-| Build the The Fialters To Asstes | ⏳      |
-| Create User settings page        | ⏳      |
+| Task                                             | Status  |
+|--------------------------------------------------|---------|
+| Build Report Students Attendentes				   | ⏳      |
+| Create User settings page						   | ⏳      |
 
 ---
 
