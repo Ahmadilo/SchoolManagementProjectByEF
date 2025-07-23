@@ -2,13 +2,7 @@
 using SchoolManagementSystem.WinForm.Humans;
 using SchoolManagementSystem.WinForm.Apps;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SchoolManagementSystem.WinForm.Reports;
 
@@ -123,6 +117,11 @@ namespace SchoolManagementSystem.WinForm.Gates
         private void studentExamsReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmStudentExamReport());
+        }
+
+        private void studentAttendaceRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmAttendacesRecode());
         }
     }
 }

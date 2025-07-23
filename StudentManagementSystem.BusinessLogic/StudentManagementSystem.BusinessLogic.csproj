@@ -55,11 +55,13 @@
     <Compile Include="clsBase.cs" />
     <Compile Include="clsPublic.cs" />
     <Compile Include="Features\Administrative\Auth\clsLogin.cs" />
+    <Compile Include="Features\Groups\StudentAttendaceReportGroup.cs" />
     <Compile Include="Features\Operations\clsStudentDetails.cs" />
     <Compile Include="Features\Operations\clsTeacherSubjects.cs" />
     <Compile Include="Features\Operations\Reports\clsStudentsReport.cs" />
     <Compile Include="Features\Operations\Templates\Extensions.cs" />
     <Compile Include="Features\Operations\Templates\tmpAttendanceRecode.cs" />
+    <Compile Include="Features\Operations\Templates\tmpStudentAttendacesReport.cs" />
     <Compile Include="Features\Operations\Templates\tmpStudentExm.cs" />
     <Compile Include="Features\Services\clsAttendaceRecodesServices.cs" />
     <Compile Include="Humans\clsPerson.cs" />
@@ -75,5 +77,6 @@
       <Name>StudentManagementSystem.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

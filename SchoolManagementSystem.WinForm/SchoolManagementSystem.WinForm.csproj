@@ -216,6 +216,12 @@
     <Compile Include="Reports\frmClassesReport.Designer.cs">
       <DependentUpon>frmClassesReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmReoprtSelecter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReoprtSelecter.Designer.cs">
+      <DependentUpon>frmReoprtSelecter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmStudentExamReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmClassesReport.resx">
       <DependentUpon>frmClassesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReoprtSelecter.resx">
+      <DependentUpon>frmReoprtSelecter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmStudentExamReport.resx">
       <DependentUpon>frmStudentExamReport.cs</DependentUpon>

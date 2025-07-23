@@ -1,5 +1,6 @@
 ﻿using SchoolManagementSystem.WinForm.Apps;
 using SchoolManagementSystem.WinForm.Gates;
+using SchoolManagementSystem.WinForm.Reports;
 using System;
 using System.Windows.Forms;
 
@@ -15,7 +16,7 @@ namespace SchoolManagementSystem.WinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAttendacesRecode());
+            Application.Run(new frmReoprtSelecter());
         }
     }
 }

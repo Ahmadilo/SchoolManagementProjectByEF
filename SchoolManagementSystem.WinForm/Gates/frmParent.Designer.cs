@@ -50,6 +50,8 @@
             this.studentReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.classesRepportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentExamsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.attendacesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentAttendaceRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,7 +152,8 @@
             this.applcationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addStudentToClassToolStripMenuItem,
             this.addSubjectToClassToolStripMenuItem,
-            this.gradsToolStripMenuItem});
+            this.gradsToolStripMenuItem,
+            this.attendacesToolStripMenuItem});
             this.applcationsToolStripMenuItem.Name = "applcationsToolStripMenuItem";
             this.applcationsToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.applcationsToolStripMenuItem.Text = "A&pplcations";
@@ -231,6 +234,21 @@
             this.studentExamsReportToolStripMenuItem.Text = "Student E&xams Report";
             this.studentExamsReportToolStripMenuItem.Click += new System.EventHandler(this.studentExamsReportToolStripMenuItem_Click);
             // 
+            // attendacesToolStripMenuItem
+            // 
+            this.attendacesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.studentAttendaceRecordToolStripMenuItem});
+            this.attendacesToolStripMenuItem.Name = "attendacesToolStripMenuItem";
+            this.attendacesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.attendacesToolStripMenuItem.Text = "&Attendaces";
+            // 
+            // studentAttendaceRecordToolStripMenuItem
+            // 
+            this.studentAttendaceRecordToolStripMenuItem.Name = "studentAttendaceRecordToolStripMenuItem";
+            this.studentAttendaceRecordToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.studentAttendaceRecordToolStripMenuItem.Text = "&Student Attendace Record";
+            this.studentAttendaceRecordToolStripMenuItem.Click += new System.EventHandler(this.studentAttendaceRecordToolStripMenuItem_Click);
+            // 
             // frmParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,5 +291,7 @@
         private System.Windows.Forms.ToolStripMenuItem gradsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentExamToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentExamsReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem attendacesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem studentAttendaceRecordToolStripMenuItem;
     }
 }
