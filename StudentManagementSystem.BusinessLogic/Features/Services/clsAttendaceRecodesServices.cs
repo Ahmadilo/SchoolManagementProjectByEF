@@ -24,10 +24,11 @@ namespace StudentManagementSystem.BusinessLogic.Features.Services
 
         }
 
-        public clsAttendaceRecodesServices(int ClassID, int SubjectID)
+        public clsAttendaceRecodesServices(int ClassID, int SubjectID, DateTime Date)
         {
             this.ClassID = ClassID;
             this.SubjectID = SubjectID;
+            this.AttendanceDate = Date;
         }
 
         public List<tmpAttendanceRecode> GetNewStudentAttendanceRecodes()

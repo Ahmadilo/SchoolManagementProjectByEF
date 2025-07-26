@@ -141,12 +141,17 @@ namespace SchoolManagementSystem.WinForm.Apps
             cmbSubjects.Items.AddRange(lessons.Select(l => l.SubjectName).ToArray());
         }
 
-        private void cmbSubjects_SelectedIndexChanged(object sender, EventArgs e)
+        private void SetService()
         {
             int ClassID = dcrClasses.First(c => c.Value == cmbClasses.SelectedItem.ToString()).Key;
             int SubjectID = dcrSubjects.First(s => s.Value == cmbSubjects.SelectedItem.ToString()).Key;
 
-            AttendaceRecodesServices = new clsAttendaceRecodesServices(ClassID: ClassID, SubjectID: SubjectID);
+            AttendaceRecodesServices = new clsAttendaceRecodesServices(ClassID: ClassID, SubjectID: SubjectID, Date: dtpDate.Value);
+        }
+
+        private void cmbSubjects_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetService();
         }
 
         private void SaveClick()
@@ -197,6 +202,11 @@ namespace SchoolManagementSystem.WinForm.Apps
                 ApplyClick();
             else
                 ClearClick();
+        }
+
+        private void dtpDate_ValueChanged(object sender, EventArgs e)
+        {
+            SetService();
         }
     }
 }

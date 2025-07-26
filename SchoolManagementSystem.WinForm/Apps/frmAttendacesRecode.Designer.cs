@@ -37,8 +37,8 @@
             this.cmbClasses = new System.Windows.Forms.ComboBox();
             this.ucShowTable1 = new SchoolManagementSystem.WinForm.ucShowTable();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnActive = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +84,7 @@
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(200, 20);
             this.dtpDate.TabIndex = 6;
+            this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
             // 
             // label2
             // 
@@ -134,16 +135,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Active Bar";
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(683, 22);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // btnActive
             // 
             this.btnActive.Location = new System.Drawing.Point(602, 22);
@@ -153,6 +144,16 @@
             this.btnActive.Text = "Apply";
             this.btnActive.UseVisualStyleBackColor = true;
             this.btnActive.Click += new System.EventHandler(this.btnActive_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(683, 22);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // frmAttendacesRecode
             // 
