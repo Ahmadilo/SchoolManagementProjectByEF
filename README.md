@@ -27,7 +27,8 @@ A comprehensive software system for managing school operations, developed indivi
 - ✅ Teacher profile report (singel card or rows of cards)
 - ✅ Student test scores report (Table)
 - ✅ Export Table reports to Excel 
-- ✅ Export Table reports to PDF 
+- ✅ Export Table reports to PDF
+- ✅ Export Student Attendentes For selected class
 
 ---
 
@@ -35,7 +36,6 @@ A comprehensive software system for managing school operations, developed indivi
 
 | Task                                             | Status  |
 |--------------------------------------------------|---------|
-| Build Report Students Attendentes				   | ⏳      |
 | Create User settings page						   | ⏳      |
 
 ---
