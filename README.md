@@ -34,9 +34,13 @@ A comprehensive software system for managing school operations, developed indivi
 
 ## 🚧 Upcoming Tasks (Improvements)
 
-| Task                                             | Status  |
-|--------------------------------------------------|---------|
-| Create User settings page						   | ⏳      |
+| Task                                            | Status |
+|-------------------------------------------------|--------|
+| Create User Settings Page                       | ⏳     |
+| Implement Feature Control for Different Roles   | ⏳     |
+| Rebuild the Enroll Student to Class             | ⏳     |
+| Rebuild the Assign Subject to Class             | ⏳     |
+
 
 ---
 
