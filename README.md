@@ -34,12 +34,13 @@ A comprehensive software system for managing school operations, developed indivi
 
 ## 🚧 Upcoming Tasks (Improvements)
 
-| Task                                            | Status |
-|-------------------------------------------------|--------|
-| Create User Settings Page                       | ⏳     |
-| Implement Feature Control for Different Roles   | ⏳     |
-| Rebuild the Enroll Student to Class             | ⏳     |
-| Rebuild the Assign Subject to Class             | ⏳     |
+| Task                                                  | Plan                            | Status |
+|-------------------------------------------------------|---------------------------------|--------|
+| Create User Settings Page                             | UserSettings.md                 | ⏳     |
+| Create User Control: ucInputTable                     | unInputTable.md                 | ⏳     |
+| Implement Feature Control for Different Roles         | FeatureContrller.md             | ⏳     |
+| Rebuild the Enroll Student to Class                   | Non Eite                        | ⏳     |
+| Rebuild the Assign Subject to Class                   | Non Eite                        | ⏳     |
 
 
 ---
