@@ -110,6 +110,7 @@ namespace SchoolManagementSystem.WinForm.UserControls
                 exporter.SaveToFile(fullPath);
 
                 MessageBox.Show("The File Exporterd Successfully: " + fullPath);
+                lblStatus.Text = "Status: Successfully Export file";
                 onSuccessfullyExported();
             }
             catch (Exception ex)

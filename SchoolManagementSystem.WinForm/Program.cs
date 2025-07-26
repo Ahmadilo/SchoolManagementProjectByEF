@@ -16,7 +16,7 @@ namespace SchoolManagementSystem.WinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmReoprtSelecter());
+            Application.Run(new frmParent());
         }
     }
 }

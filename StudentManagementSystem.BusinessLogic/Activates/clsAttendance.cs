@@ -1,4 +1,5 @@
-﻿using StudentManagementSystem.DataAccess.Models;
+﻿using StudentManagementSystem.BusinessLogic.Humans;
+using StudentManagementSystem.DataAccess.Models;
 using StudentManagementSystem.DataAccess.Services;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,13 @@ namespace StudentManagementSystem.BusinessLogic.Activates
     public class clsAttendance : clsBase<clsAttendance>
     {
         private readonly AttendanceService _service = new AttendanceService();
+        private clsStudent _student = null;
+        private clsClassSubject _classSubject = null;
 
         public int StudentID { get; set; }
+        public clsStudent Student { get => clsPublic.GetInstansOfID(StudentID, _student); }
         public int ClassSubjectID { get; set; }
+        public clsClassSubject ClassSubject { get => clsPublic.GetInstansOfID(ClassSubjectID, _classSubject); }
         public DateTime Date { get; set; }
         public string Status { get; set; }
         public string Notes { get; set; }

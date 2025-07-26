@@ -123,5 +123,10 @@ namespace SchoolManagementSystem.WinForm.Gates
         {
             OpenChildForm(new frmAttendacesRecode());
         }
+
+        private void classAttendacesReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmClassAttendacesReport());
+        }
     }
 }
