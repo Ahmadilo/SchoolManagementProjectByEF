@@ -62,7 +62,7 @@ namespace StudentManagementSystem.BusinessLogic.Features.Services
 
                 attendance.ClassSubjectID = lesson.ID;
                 attendance.StudentID = student.ID;
-                attendance.Status = recode.Present ? "Persent" : "Absant";
+                attendance.Status = recode.Present ? "Present" : "Absent";
                 attendance.Date = this.AttendanceDate;
                 attendance.Notes = string.IsNullOrEmpty(recode.Note) ? null : recode.Note;
 

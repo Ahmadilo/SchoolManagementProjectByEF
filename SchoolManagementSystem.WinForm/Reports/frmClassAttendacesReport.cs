@@ -52,17 +52,29 @@ namespace SchoolManagementSystem.WinForm.Reports
                     .ToArray();
 
                 cmbSubjets.Items.Clear();
+                cmbSubjets.SelectedIndex = -1;
                 cmbSubjets.Items.AddRange(subjectsNames);
 
-                cmbSubjets.SelectedIndex = -1;
 
                 cmbSubjets.Enabled = true;
             }
         }
 
+        private List<tmpStudentAttendecesListForClass> GetFilteredList()
+        {
+            IEnumerable<tmpStudentAttendecesListForClass> list = services.GetClassStudentAttendaces();
+
+            if(cmbStatus.SelectedIndex != -1)
+            {
+                list = list.Where(l => l.Status == cmbStatus.SelectedItem.ToString().Trim());
+            }
+
+            return list.ToList();
+        }
+
         private void btnApply_Click(object sender, EventArgs e)
         {
-            ucShowTable1.LoadData(services.GetClassStudentAttendaces());
+            ucShowTable1.LoadData(GetFilteredList());
 
             btnClear.Enabled = true;
         }
@@ -87,6 +99,9 @@ namespace SchoolManagementSystem.WinForm.Reports
                 string selectSubject = cmbSubjets.SelectedItem.ToString();
 
                 services = new clsStudentAttendacesReportServices(className: cmbClasses.SelectedItem.ToString(), subjectName: selectSubject);
+
+                cmbStatus.Enabled = true;
+                cmbStatus.SelectedIndex = -1;
             }
         }
 
