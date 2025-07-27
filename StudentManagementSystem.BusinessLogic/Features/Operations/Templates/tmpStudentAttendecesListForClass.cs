@@ -13,7 +13,8 @@ namespace StudentManagementSystem.BusinessLogic.Features.Operations.Templates
         public string StudentName { get; }
         public string SubjectName { get; }
         public string Status { get; }
-        public DateTime Date { get; }
+        private DateTime _date;
+        public string Date { get => _date.ToString("d"); }
 
         public tmpStudentAttendecesListForClass(clsAttendance attdnce)
         {
@@ -21,7 +22,7 @@ namespace StudentManagementSystem.BusinessLogic.Features.Operations.Templates
             this.StudentName = attdnce.Student.FullName;
             this.SubjectName = attdnce.ClassSubject.Subject.SubjectName;
             this.Status = attdnce.Status;
-            this.Date = attdnce.Date;
+            this._date = attdnce.Date;
         }
     }
 }
