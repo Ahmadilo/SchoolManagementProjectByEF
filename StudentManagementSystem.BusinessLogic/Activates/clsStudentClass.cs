@@ -1,4 +1,6 @@
-﻿using StudentManagementSystem.DataAccess.Models;
+﻿using StudentManagementSystem.BusinessLogic.Assets;
+using StudentManagementSystem.BusinessLogic.Humans;
+using StudentManagementSystem.DataAccess.Models;
 using StudentManagementSystem.DataAccess.Services;
 using System;
 using System.Collections.Generic;
@@ -94,6 +96,11 @@ namespace StudentManagementSystem.BusinessLogic.Activates
 
         protected override bool _Add()
         {
+            clsStudent Student = clsStudent.Find(StudentID);
+
+            Student.CurrentGradeLevel = clsSchoolClass.Find(ClassID).GradeLevel;
+            Student.Save();
+
             var model = ToModel();
             model.StudentClassID = _service.AddStudentClass(model);
 

@@ -14,6 +14,23 @@ namespace StudentManagementSystem.BusinessLogic.Humans
         public int StaffID { get; set; }
         public string SubjectSpecialization { get; set; }
 
+        public string FullName 
+        { 
+            get
+            {
+                if (StaffID <= 0)
+                    return "Unknown Teacher";
+
+                var staff = clsStaff.Find(StaffID);
+
+                var person = clsPerson.Find(staff?.PersonID ?? -1);
+
+                if(person != null)
+                    return person.FullName;
+                return "";
+            }
+        }
+
         public clsTeacher()
         {
             IsNew = true;
@@ -141,6 +158,23 @@ namespace StudentManagementSystem.BusinessLogic.Humans
                 _ErrorMessages.Add(_ErrorStart + "Failed to update Teacher.");
                 return false;
             }
+        }
+
+        public static clsTeacher FindByUserID(int UserID)
+        {
+            if(UserID <= 0)
+            {
+                throw new ArgumentException("UserID must be greater than zero.", nameof(UserID));
+            }
+
+            Teacher teacher = new TeacherService().GetTeacherByUserID(UserID);
+
+            if(teacher == null)
+            {
+                return null;
+            }
+
+            return new clsTeacher(teacher);
         }
     }
 }

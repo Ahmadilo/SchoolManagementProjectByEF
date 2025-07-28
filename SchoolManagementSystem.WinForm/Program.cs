@@ -1,10 +1,7 @@
-﻿using SchoolManagementSystem.WinForm.Assets;
+﻿using SchoolManagementSystem.WinForm.Apps;
 using SchoolManagementSystem.WinForm.Gates;
-using SchoolManagementSystem.WinForm.Humans;
+using SchoolManagementSystem.WinForm.Reports;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SchoolManagementSystem.WinForm
@@ -20,8 +17,6 @@ namespace SchoolManagementSystem.WinForm
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmParent());
-
-            // TODO: Make Edit For frmManagementPeople.
         }
     }
 }

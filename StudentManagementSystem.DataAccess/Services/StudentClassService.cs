@@ -112,5 +112,24 @@ namespace StudentManagementSystem.DataAccess.Services
                 return false;
             }
         }
+
+        public List<int> GetAllStudentIDsInClass()
+        {
+            try
+            {
+                using (var db = new AppDbContext())
+                {
+                    return db.StudentClasses.Where(sc => sc.StudentID > 0)
+                                            .Select(sc => sc.StudentID)
+                                            .Distinct()
+                                            .ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.LogError(ExceptionHelper.GetRootException(e).Message);
+                return new List<int>();
+            }
+        }
     }
 }

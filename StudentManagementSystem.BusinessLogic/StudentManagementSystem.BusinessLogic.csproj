@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Helper">
+      <HintPath>..\..\Helper\Helper\bin\Debug\Helper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,8 +53,21 @@
     <Compile Include="Assets\clsSubject.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="clsBase.cs" />
+    <Compile Include="clsPublic.cs" />
     <Compile Include="Features\Administrative\Auth\clsLogin.cs" />
     <Compile Include="Features\Operations\clsStudentDetails.cs" />
+    <Compile Include="Features\Operations\clsTeacherSubjects.cs" />
+    <Compile Include="Features\Operations\Reports\clsStudentsReport.cs" />
+    <Compile Include="Features\Operations\Templates\Extensions.cs" />
+    <Compile Include="Features\Operations\Templates\tmpAddStudentMark.cs" />
+    <Compile Include="Features\Operations\Templates\tmpAttendanceRecode.cs" />
+    <Compile Include="Features\Operations\Templates\tmpStudentAttendacesReport.cs" />
+    <Compile Include="Features\Operations\Templates\tmpStudentAttendecesListForClass.cs" />
+    <Compile Include="Features\Operations\Templates\tmpStudentExm.cs" />
+    <Compile Include="Features\Roles\Enums.cs" />
+    <Compile Include="Features\Services\clsAttendaceRecodesServices.cs" />
+    <Compile Include="Features\Services\clsStudentAttendacesReportServices.cs" />
+    <Compile Include="Features\Services\clsStudentMarksRecordingService.cs" />
     <Compile Include="Humans\clsPerson.cs" />
     <Compile Include="Humans\clsStaff.cs" />
     <Compile Include="Humans\clsStudent.cs" />
@@ -65,5 +81,6 @@
       <Name>StudentManagementSystem.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

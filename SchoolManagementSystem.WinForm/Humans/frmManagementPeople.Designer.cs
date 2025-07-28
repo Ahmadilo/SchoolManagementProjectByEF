@@ -46,7 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.ucSaveBar1 = new SchoolManagementSystem.WinForm.UserControls.ucSaveBar();
-            this.cuPeopleTable = new SchoolManagementSystem.WinForm.HumansTable();
+            this.cuPeopleTable = new SchoolManagementSystem.WinForm.ucShowTable();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -261,7 +261,7 @@
 
         #endregion
 
-        private HumansTable cuPeopleTable;
+        private ucShowTable cuPeopleTable;
         private UserControls.ucSaveBar ucSaveBar1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;

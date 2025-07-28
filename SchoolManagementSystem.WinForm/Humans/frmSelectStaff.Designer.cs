@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.humansTable1 = new SchoolManagementSystem.WinForm.HumansTable();
+            this.humansTable1 = new SchoolManagementSystem.WinForm.ucShowTable();
             this.lblHumanID = new System.Windows.Forms.Label();
             this.btnSelectHuman = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -76,7 +76,7 @@
 
         #endregion
 
-        private HumansTable humansTable1;
+        private ucShowTable humansTable1;
         private System.Windows.Forms.Label lblHumanID;
         private System.Windows.Forms.Button btnSelectHuman;
     }

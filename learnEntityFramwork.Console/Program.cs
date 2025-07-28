@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using StudentManagementSystem.BusinessLogic;
 using StudentManagementSystem.BusinessLogic.Humans;
 using StudentManagementSystem.DataAccess.Services.ProcedureServices;
@@ -275,104 +277,104 @@ namespace learnEntityFramwork.ConsoleApp
         static void TestActvitValidation()
         {
             // بيانات صحيحة
-            ActvitsValidationTest.TestValidationOfStudentClass(5, 3, DateTime.Now.AddDays(-1));
-            Console.WriteLine("\n\n\n\n");
-            // بيانات خاطئة: ID سالب، وتاريخ في المستقبل
-            ActvitsValidationTest.TestValidationOfStudentClass(-1, 0, DateTime.Now.AddDays(2));
-            Console.WriteLine("\n\n\n\n");
+            //ActvitsValidationTest.TestValidationOfStudentClass(5, 3, DateTime.Now);
+            //Console.WriteLine("\n\n\n\n");
+            //// بيانات خاطئة: ID سالب، وتاريخ في المستقبل
+            //ActvitsValidationTest.TestValidationOfStudentClass(-1, 0, DateTime.Now.AddDays(2));
+            //Console.WriteLine("\n\n\n\n");
+            //// ✅ بيانات صحيحة
+            //ActvitsValidationTest.TestValidationOfNotification(
+            //    senderId: 1,
+            //    receiverId: 2,
+            //    title: "Important Update",
+            //    message: "Please check your email for the latest announcement.",
+            //    sentDate: DateTime.Now.AddMinutes(-10)
+            //);
+            //Console.WriteLine("\n\n\n\n");
+            //// ❌ بيانات خاطئة
+            //ActvitsValidationTest.TestValidationOfNotification(
+            //    senderId: 0,
+            //    receiverId: -5,
+            //    title: "", // فارغ
+            //    message: new string('x', 600), // أطول من 500 حرف
+            //    sentDate: DateTime.Now.AddDays(1) // تاريخ في المستقبل
+            //);
+            //Console.WriteLine("\n\n\n\n");
+            //// ✅ بيانات صحيحة
+            //ActvitsValidationTest.TestValidationOfGrade(
+            //    studentId: 1,
+            //    classSubjectId: 2,
+            //    gradeType: "Exam",
+            //    gradeDate: DateTime.Now.AddDays(-3),
+            //    score: 85.5m,
+            //    maxScore: 100m,
+            //    weight: 0.3m,
+            //    comments: "Good performance."
+            //);
+            //Console.WriteLine("\n\n\n\n");
+            //// ❌ بيانات خاطئة
+            //ActvitsValidationTest.TestValidationOfGrade(
+            //    studentId: -10,
+            //    classSubjectId: 0,
+            //    gradeType: new string('X', 25), // أكثر من 20 حرف
+            //    gradeDate: DateTime.Now.AddDays(2), // مستقبل
+            //    score: 110m,
+            //    maxScore: 100m,
+            //    weight: -5,
+            //    comments: new string('A', 300) // أكثر من 200
+            //);
+            //Console.WriteLine("\n\n\n\n");
             // ✅ بيانات صحيحة
-            ActvitsValidationTest.TestValidationOfNotification(
-                senderId: 1,
-                receiverId: 2,
-                title: "Important Update",
-                message: "Please check your email for the latest announcement.",
-                sentDate: DateTime.Now.AddMinutes(-10)
-            );
-            Console.WriteLine("\n\n\n\n");
-            // ❌ بيانات خاطئة
-            ActvitsValidationTest.TestValidationOfNotification(
-                senderId: 0,
-                receiverId: -5,
-                title: "", // فارغ
-                message: new string('x', 600), // أطول من 500 حرف
-                sentDate: DateTime.Now.AddDays(1) // تاريخ في المستقبل
-            );
-            Console.WriteLine("\n\n\n\n");
-            // ✅ بيانات صحيحة
-            ActvitsValidationTest.TestValidationOfGrade(
-                studentId: 1,
-                classSubjectId: 2,
-                gradeType: "Exam",
-                gradeDate: DateTime.Now.AddDays(-3),
-                score: 85.5m,
-                maxScore: 100m,
-                weight: 0.3m,
-                comments: "Good performance."
-            );
-            Console.WriteLine("\n\n\n\n");
-            // ❌ بيانات خاطئة
-            ActvitsValidationTest.TestValidationOfGrade(
-                studentId: -10,
-                classSubjectId: 0,
-                gradeType: new string('X', 25), // أكثر من 20 حرف
-                gradeDate: DateTime.Now.AddDays(2), // مستقبل
-                score: 110m,
-                maxScore: 100m,
-                weight: -5,
-                comments: new string('A', 300) // أكثر من 200
-            );
-            Console.WriteLine("\n\n\n\n");
-            // ✅ بيانات صحيحة
-            ActvitsValidationTest.TestValidationOfClassSubject(
-                classId: 1,
-                subjectId: 2,
-                teacherId: 3,
-                scheduleDay: "Monday",
-                startTime: new TimeSpan(8, 0, 0),
-                endTime: new TimeSpan(9, 30, 0),
-                roomNumber: "A101"
-            );
-            Console.WriteLine("\n\n\n\n");
-            // ❌ بيانات خاطئة
-            ActvitsValidationTest.TestValidationOfClassSubject(
-                classId: -1,
-                subjectId: 0,
-                teacherId: -5,
-                scheduleDay: "VeryLongDayName",
-                startTime: new TimeSpan(10, 0, 0),
-                endTime: new TimeSpan(9, 0, 0),
-                roomNumber: new string('X', 25) // أكثر من 20 حرف
-            );
-            Console.WriteLine("\n\n\n\n");
-            // ✅ بيانات صحيحة
-            ActvitsValidationTest.TestValidationOfAttendance(
-                studentId: 1,
-                classSubjectId: 2,
-                date: DateTime.Today,
-                status: "Present",
-                notes: "On time"
-            );
-            Console.WriteLine("\n\n\n\n");
-            // ❌ بيانات خاطئة
-            ActvitsValidationTest.TestValidationOfAttendance(
-                studentId: -5,
-                classSubjectId: 0,
-                date: DateTime.Now.AddDays(3), // مستقبل
-                status: new string('A', 25),   // أكثر من 20 حرف
-                notes: new string('X', 300)    // أكثر من 200 حرف
-            );
+            //ActvitsValidationTest.TestValidationOfClassSubject(
+            //    classId: 3,
+            //    subjectId: 6,
+            //    teacherId: 3,
+            //    scheduleDay: "Monday",
+            //    startTime: new TimeSpan(8, 0, 0),
+            //    endTime: new TimeSpan(9, 30, 0),
+            //    roomNumber: "A101"
+            //);
+            //Console.WriteLine("\n\n\n\n");
+            //// ❌ بيانات خاطئة
+            //ActvitsValidationTest.TestValidationOfClassSubject(
+            //    classId: -1,
+            //    subjectId: 0,
+            //    teacherId: -5,
+            //    scheduleDay: "VeryLongDayName",
+            //    startTime: new TimeSpan(10, 0, 0),
+            //    endTime: new TimeSpan(9, 0, 0),
+            //    roomNumber: new string('X', 25) // أكثر من 20 حرف
+            //);
+            //Console.WriteLine("\n\n\n\n");
+            //// ✅ بيانات صحيحة
+            //ActvitsValidationTest.TestValidationOfAttendance(
+            //    studentId: 1,
+            //    classSubjectId: 2,
+            //    date: DateTime.Today,
+            //    status: "Present",
+            //    notes: "On time"
+            //);
+            //Console.WriteLine("\n\n\n\n");
+            //// ❌ بيانات خاطئة
+            //ActvitsValidationTest.TestValidationOfAttendance(
+            //    studentId: -5,
+            //    classSubjectId: 0,
+            //    date: DateTime.Now.AddDays(3), // مستقبل
+            //    status: new string('A', 25),   // أكثر من 20 حرف
+            //    notes: new string('X', 300)    // أكثر من 200 حرف
+            //);
         }
 
         static void TestActvitsMunpultion()
         {
-            ActvitsManpultionTest.TestAttendanceService(
-                studentId: 1,
-                classSubjectId: 2,
-                date: DateTime.Now.Date,
-                status: "Absent",
-                notes: "Was sick"
-            );
-            Console.WriteLine("\n\n\n");
+            //ActvitsManpultionTest.TestAttendanceService(
+            //    studentId: 1,
+            //    classSubjectId: 2,
+            //    date: DateTime.Now.Date,
+            //    status: "Absent",
+            //    notes: "Was sick"
+            //);
+            //Console.WriteLine("\n\n\n");
             ActvitsManpultionTest.TestClassSubjectService(
                 classId: 1,
                 subjectId: 1,
@@ -382,88 +384,66 @@ namespace learnEntityFramwork.ConsoleApp
                 endTime: new TimeSpan(10, 0, 0),
                 roomNumber: "A101"
             );
-            Console.WriteLine("\n\n\n");
-            ActvitsManpultionTest.TestGradeService(
-                studentId: 1,            // تأكد أن هذا الطالب موجود
-                classSubjectId: 1,       // تأكد أن هذا الـ ClassSubject موجود
-                gradeType: "Midterm",
-                gradeDate: DateTime.Now.AddDays(-10),
-                score: 85.5m,
-                maxScore: 100m,
-                weight: 0.3m,
-                comments: "Good performance"
-            );
-            Console.WriteLine("\n\n\n");
-            ActvitsManpultionTest.TestNotificationService(
-                senderId: 1,      // تأكد أن المستخدم صاحب هذا ID موجود
-                receiverId: 2,    // تأكد أن المستقبل موجود أيضًا
-                title: "New Assignment",
-                message: "You have a new assignment due next week."
-            );
-            ActvitsManpultionTest.TestStudentClassService(
-                studentId: 1,         // تأكد أن هذا الطالب موجود مسبقًا
-                classId: 1,           // تأكد أن هذا الصف موجود مسبقًا
-                enrollmentDate: DateTime.Now
-            );
-            Console.WriteLine("\n\n\n");
+            //Console.WriteLine("\n\n\n");
+            //ActvitsManpultionTest.TestGradeService(
+            //    studentId: 1,            // تأكد أن هذا الطالب موجود
+            //    classSubjectId: 1,       // تأكد أن هذا الـ ClassSubject موجود
+            //    gradeType: "Midterm",
+            //    gradeDate: DateTime.Now.AddDays(-10),
+            //    score: 85.5m,
+            //    maxScore: 100m,
+            //    weight: 0.3m,
+            //    comments: "Good performance"
+            //);
+            //Console.WriteLine("\n\n\n");
+            //ActvitsManpultionTest.TestNotificationService(
+            //    senderId: 1,      // تأكد أن المستخدم صاحب هذا ID موجود
+            //    receiverId: 2,    // تأكد أن المستقبل موجود أيضًا
+            //    title: "New Assignment",
+            //    message: "You have a new assignment due next week."
+            //);
+            //ActvitsManpultionTest.TestStudentClassService(
+            //    studentId: 1,         // تأكد أن هذا الطالب موجود مسبقًا
+            //    classId: 3,           // تأكد أن هذا الصف موجود مسبقًا
+            //    enrollmentDate: DateTime.Now
+            //);
+            //Console.WriteLine("\n\n\n");
+        }
+
+        class Employment
+        {
+            public string Name { get; set; }
+            public string Posistion { get; set; }
+            public int Salary { get; set; }
+            public string Email { get; set; }
+
+            public Employment(string name, string posistion, int salary, string email) 
+            {
+                this.Name = name;
+                this.Posistion = posistion;
+                this.Salary = salary;
+                this.Email = email;
+            }
         }
 
         static void Main(string[] args)
         {
-            //Class1.AddPersonWithVaidtionExample();
-            //Class1.AddUserWithVaidtionExample();
-            //Class1.AddStudentWithValidationExample();
-            //Class1.AddStaffWithValidationExample();
-            //Class1.AddTeacherWithValidationExample();
+            //SimplePdfCreator.CreateSimplePdf("Test");
 
-            //TestClsUser();
-            //TestclsPerson();
-            //TestclsStudent();
-            //TestclsStaff();
-            //TestclsTeacher();
-
-            //AssetVaildtionTest.TestValidation("Science Super Advanced Section A for Gifted Students", 13, "", 9999);
-            //Console.WriteLine("\n\n\n\n");
-            //AssetVaildtionTest.TestValidation("Science Super Advanced Section", 12, "", 9999);
-            //Console.WriteLine("\n\n\n\n");
-            //AssetVaildtionTest.TestValidationOfSchoolClass("Science Super Advanced Section", 12, "2020-01-20", 1);
-
-            //AssetVaildtionTest.TestValidationOfSubject("", "MATH-101-ADVANCED-TOO-LONG-CODE", new string('A', 600), new string('B', 100));
-            //Console.WriteLine("\n\n\n\n");
-
-            //AssetManpultionTest.TestSubjectService("Mathematics", "MATH1011", "Algebra and Calculus", "Science");
-
-
-            //AssetVaildtionTest.TestValidationOfSchoolClass("Class A", 6, "2020/2021", null);
-            //Console.WriteLine("\n\n\n\n");
-            ////AssetManpultionTest.TestSchoolClassService("Class A", 6, "2020/2021", 1);
-
-            //AssetObjectTest.TestSchoolClassCRUD(
-            //    className: "Class A",
-            //    gradeLevel: 6,
-            //    academicYear: "2024-2025",
-            //    teacherId: null // أو ضع رقم معرّف معلم صالح إن توفر
-            //);
-
-            //AssetVaildtionTest.TestValidationOfSubject("Mathematics", "MATH1011", "Algebra and Calculus", "Science");
-
-            //AssetObjectTest.TestSubjectCRUD(
-            //    name: "Mathematics",
-            //    code: "MATH1011",
-            //    description: "Algebra and Calculus",
-            //    department: "Science"
-            //);
-
-            //TestActvitValidation();
-
-            StudentDetailsDto.PrintStudentDetailsHeader();
-
-            List<StudentDetailsDto> studentDetails = StudentDetailsDtoService.GetAllStudentDetails();
-
-            foreach (var student in studentDetails)
+            List<Employment> List = new List<Employment>
             {
-                StudentDetailsDto.PrintStudentDetailsRow(student);
-            }
+                new Employment("Ahmad", "Teacher", 1000, "Email@mail.com"),
+                new Employment("Hamda", "Tester", 1000, "Email@mail.com"),
+                new Employment("Faadomo", "Clean Lady", 1000, "Email@mail.com"),
+                new Employment("Sayenb", "Salary", 1000, "Email@mail.com")
+            };
+
+            PdfExporter<Employment> pdfExporter = new PdfExporter<Employment>();
+
+            pdfExporter.SetHeader(new string[] { "Name", "Posistion", "Email" , "Salary" });
+            pdfExporter.AddData(List);
+
+            pdfExporter.SaveToFile(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TestTable1.pdf"));
         }
     }
 }

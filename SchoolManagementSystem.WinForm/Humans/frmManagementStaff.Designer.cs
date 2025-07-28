@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.humansTable1 = new SchoolManagementSystem.WinForm.HumansTable();
+            this.humansTable1 = new SchoolManagementSystem.WinForm.ucShowTable();
             this.ucSaveBar1 = new SchoolManagementSystem.WinForm.UserControls.ucSaveBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSelectPerson = new System.Windows.Forms.Button();
@@ -183,7 +183,7 @@
 
         #endregion
 
-        private HumansTable humansTable1;
+        private ucShowTable humansTable1;
         private UserControls.ucSaveBar ucSaveBar1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;

@@ -26,7 +26,7 @@ namespace StudentManagementSystem.DataAccess.Services
             if (grade.GradeDate > DateTime.Now)
                 errors.Add(ErrorStart + "GradeDate cannot be in the future.");
 
-            if (grade.Score < 0)
+            if (grade.Score < -1)
                 errors.Add(ErrorStart + "Score must be zero or positive.");
 
             if (grade.MaxScore <= 0)

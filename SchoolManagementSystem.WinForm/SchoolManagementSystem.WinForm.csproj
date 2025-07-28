@@ -36,15 +36,55 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus, Version=8.0.7.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.8.0.7\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.8.0.0\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Helper">
+      <HintPath>..\..\Helper\Helper\bin\Debug\Helper.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.3.0.1\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Xml, Version=8.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Xml.8.0.2\lib\net462\System.Security.Cryptography.Xml.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +96,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apps\frmAddStudentToClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apps\frmAddStudentToClass.Designer.cs">
+      <DependentUpon>frmAddStudentToClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apps\frmAddSubjectToClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apps\frmAddSubjectToClass.Designer.cs">
+      <DependentUpon>frmAddSubjectToClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apps\frmAssignStudentMark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apps\frmAssignStudentMark.Designer.cs">
+      <DependentUpon>frmAssignStudentMark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apps\frmAttendacesRecode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apps\frmAttendacesRecode.Designer.cs">
+      <DependentUpon>frmAttendacesRecode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apps\frmExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apps\frmExam.Designer.cs">
+      <DependentUpon>frmExam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Assets\frmManagementShoolClass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +162,12 @@
     <Compile Include="Gates\frmParent.Designer.cs">
       <DependentUpon>frmParent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gates\frmTeacherHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gates\frmTeacherHome.Designer.cs">
+      <DependentUpon>frmTeacherHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="Humans\frmManagementStaff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,11 +198,79 @@
     <Compile Include="Humans\frmStudentDetails.Designer.cs">
       <DependentUpon>frmStudentDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\HumansTable.cs">
+    <Compile Include="Humans\frmTeacherSideBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Humans\frmTeacherSideBar.Designer.cs">
+      <DependentUpon>frmTeacherSideBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmClassAndStudentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmClassAndStudentReport.Designer.cs">
+      <DependentUpon>frmClassAndStudentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmClassAttendacesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmClassAttendacesReport.Designer.cs">
+      <DependentUpon>frmClassAttendacesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmClassCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmClassCard.Designer.cs">
+      <DependentUpon>frmClassCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmClassesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmClassesReport.Designer.cs">
+      <DependentUpon>frmClassesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmStudentExamReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStudentExamReport.Designer.cs">
+      <DependentUpon>frmStudentExamReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmStudentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStudentReport.Designer.cs">
+      <DependentUpon>frmStudentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmStudentSelecter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStudentSelecter.Designer.cs">
+      <DependentUpon>frmStudentSelecter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmStudentsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStudentsReport.Designer.cs">
+      <DependentUpon>frmStudentsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Units\ExculExport.cs" />
+    <Compile Include="Units\PdfExporter.cs" />
+    <Compile Include="UserControls\ucClassCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\HumansTable.Designer.cs">
-      <DependentUpon>HumansTable.cs</DependentUpon>
+    <Compile Include="UserControls\ucClassCard.Designer.cs">
+      <DependentUpon>ucClassCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucExcelExport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucExcelExport.Designer.cs">
+      <DependentUpon>ucExcelExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucShowTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucShowTable.Designer.cs">
+      <DependentUpon>ucShowTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Humans\frmManagementPeople.cs">
       <SubType>Form</SubType>
@@ -143,6 +287,12 @@
     <Compile Include="Humans\TableExtanstion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\ucListChoose.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucListChoose.Designer.cs">
+      <DependentUpon>ucListChoose.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucSaveBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,7 +305,64 @@
     <Compile Include="UserControls\ucSaveContainer.Designer.cs">
       <DependentUpon>ucSaveContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ucStudentCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucStudentCard.Designer.cs">
+      <DependentUpon>ucStudentCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucStudentSelecter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucStudentSelecter.Designer.cs">
+      <DependentUpon>ucStudentSelecter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherClasses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherClasses.Designer.cs">
+      <DependentUpon>ucTeacherClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherSider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherSider.Designer.cs">
+      <DependentUpon>ucTeacherSider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherStudentAttendances.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherStudentAttendances.Designer.cs">
+      <DependentUpon>ucTeacherStudentAttendances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherStudentGrads.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherStudentGrads.Designer.cs">
+      <DependentUpon>ucTeacherStudentGrads.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherSubjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucTeacherSubjects.Designer.cs">
+      <DependentUpon>ucTeacherSubjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilty.cs" />
+    <EmbeddedResource Include="Apps\frmAddStudentToClass.resx">
+      <DependentUpon>frmAddStudentToClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apps\frmAddSubjectToClass.resx">
+      <DependentUpon>frmAddSubjectToClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apps\frmAssignStudentMark.resx">
+      <DependentUpon>frmAssignStudentMark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apps\frmAttendacesRecode.resx">
+      <DependentUpon>frmAttendacesRecode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apps\frmExam.resx">
+      <DependentUpon>frmExam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assets\frmManagementShoolClass.resx">
       <DependentUpon>frmManagementShoolClass.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +381,9 @@
     <EmbeddedResource Include="Gates\frmParent.resx">
       <DependentUpon>frmParent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gates\frmTeacherHome.resx">
+      <DependentUpon>frmTeacherHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Humans\frmManagementStaff.resx">
       <DependentUpon>frmManagementStaff.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,8 +399,41 @@
     <EmbeddedResource Include="Humans\frmStudentDetails.resx">
       <DependentUpon>frmStudentDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\HumansTable.resx">
-      <DependentUpon>HumansTable.cs</DependentUpon>
+    <EmbeddedResource Include="Humans\frmTeacherSideBar.resx">
+      <DependentUpon>frmTeacherSideBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmClassAndStudentReport.resx">
+      <DependentUpon>frmClassAndStudentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmClassAttendacesReport.resx">
+      <DependentUpon>frmClassAttendacesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmClassCard.resx">
+      <DependentUpon>frmClassCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmClassesReport.resx">
+      <DependentUpon>frmClassesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStudentExamReport.resx">
+      <DependentUpon>frmStudentExamReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStudentReport.resx">
+      <DependentUpon>frmStudentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStudentSelecter.resx">
+      <DependentUpon>frmStudentSelecter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStudentsReport.resx">
+      <DependentUpon>frmStudentsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucClassCard.resx">
+      <DependentUpon>ucClassCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucExcelExport.resx">
+      <DependentUpon>ucExcelExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucShowTable.resx">
+      <DependentUpon>ucShowTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Humans\frmManagementPeople.resx">
       <DependentUpon>frmManagementPeople.cs</DependentUpon>
@@ -207,11 +450,35 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\ucListChoose.resx">
+      <DependentUpon>ucListChoose.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucSaveBar.resx">
       <DependentUpon>ucSaveBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucSaveContainer.resx">
       <DependentUpon>ucSaveContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucStudentCard.resx">
+      <DependentUpon>ucStudentCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucStudentSelecter.resx">
+      <DependentUpon>ucStudentSelecter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucTeacherClasses.resx">
+      <DependentUpon>ucTeacherClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucTeacherSider.resx">
+      <DependentUpon>ucTeacherSider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucTeacherStudentAttendances.resx">
+      <DependentUpon>ucTeacherStudentAttendances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucTeacherStudentGrads.resx">
+      <DependentUpon>ucTeacherStudentGrads.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucTeacherSubjects.resx">
+      <DependentUpon>ucTeacherSubjects.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -237,6 +504,7 @@
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+      <NoWarn>$(NoWarn);NU1902</NoWarn>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />

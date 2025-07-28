@@ -60,6 +60,7 @@
             this.chAutoClear.TabIndex = 2;
             this.chAutoClear.Text = "Auto Clear";
             this.chAutoClear.UseVisualStyleBackColor = true;
+            this.chAutoClear.CheckedChanged += new System.EventHandler(this.chAutoClear_CheckedChanged);
             // 
             // btnClear
             // 

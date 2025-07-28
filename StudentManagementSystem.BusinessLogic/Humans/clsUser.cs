@@ -11,11 +11,24 @@ namespace StudentManagementSystem.BusinessLogic.Humans
     public class clsUser : clsBase<clsUser>
     {
         private readonly UserService _userService = new UserService();
+        private clsTeacher _teacher = null;
         public string Username { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
         public DateTime LastLogin { get; set; }
         public bool IsActive { get; set; }
+
+        public clsTeacher Teacher
+        {
+            get
+            {
+                if(_teacher == null)
+                {
+                    _teacher = clsTeacher.FindByUserID(ID);
+                }
+                return _teacher;
+            }
+        }
 
         public clsUser()
         {

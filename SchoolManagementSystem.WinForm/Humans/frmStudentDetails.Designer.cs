@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.humansTable1 = new SchoolManagementSystem.WinForm.HumansTable();
+            this.humansTable1 = new SchoolManagementSystem.WinForm.ucShowTable();
             this.SuspendLayout();
             // 
             // label1
@@ -51,6 +51,8 @@
             this.humansTable1.Name = "humansTable1";
             this.humansTable1.Size = new System.Drawing.Size(762, 265);
             this.humansTable1.TabIndex = 1;
+            this.humansTable1.EditClicked += new System.EventHandler<int>(this.EditClick);
+            this.humansTable1.DeleteClicked += new System.EventHandler<int>(this.DeleteClick);
             // 
             // frmStudentDetails
             // 
@@ -70,6 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private HumansTable humansTable1;
+        private ucShowTable humansTable1;
     }
 }

@@ -19,6 +19,8 @@ namespace StudentManagementSystem.DataAccess.Services
             // تحقق ClassID
             if (studentClass.ClassID <= 0)
                 errors.Add(ErrorStart + "ClassID must be a positive integer.");
+            else if (new SchoolClassService().DoesClassExist(studentClass.ClassID) == false)
+                errors.Add(ErrorStart + "ClassID does not exist.");
 
             // تحقق EnrollmentDate (مثلاً لا تقبل تاريخ مستقبلي)
             if (studentClass.EnrollmentDate > DateTime.Now)

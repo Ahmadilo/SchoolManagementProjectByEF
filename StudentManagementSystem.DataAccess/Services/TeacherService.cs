@@ -135,5 +135,26 @@ namespace StudentManagementSystem.DataAccess.Services
                 return false;
             }
         }
+
+        public Teacher GetTeacherByUserID(int UserID)
+        {
+            try
+            {
+                using (var db = new AppDbContext())
+                {
+                    Person person = db.People.FirstOrDefault(p => p.UserID == UserID);
+                    if (person == null)
+                        return null;
+                    Staff staff = db.Staffs.FirstOrDefault(s => s.PersonID == person.PersonID);
+                    if (staff == null)
+                        return null;
+                    return db.Teachers.FirstOrDefault(t => t.StaffID == staff.StaffID);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

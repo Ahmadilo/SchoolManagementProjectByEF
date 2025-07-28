@@ -3,6 +3,7 @@ using StudentManagementSystem.DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace StudentManagementSystem.DataAccess.Services
 {
@@ -114,6 +115,36 @@ namespace StudentManagementSystem.DataAccess.Services
             catch
             {
                 return false;
+            }
+        }
+
+        public ClassSubject GetClassSubjectByExpression(Expression<Func<ClassSubject, bool>> expression)
+        {
+            try
+            {
+                using (var db = new AppDbContext())
+                {
+                    return db.ClassSubjects.FirstOrDefault(expression);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+    
+        public List<ClassSubject> GetClassSubjectsByExpression(Expression<Func<ClassSubject, bool>> expression)
+        {
+            try
+            {
+                using (var db = new AppDbContext())
+                {
+                    return db.ClassSubjects.Where(expression).ToList();
+                }
+            }
+            catch
+            {
+                return null;
             }
         }
     }

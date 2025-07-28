@@ -91,7 +91,13 @@
     <Compile Include="Services\TeacherService.Vaildtion.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\UserService.Vaildtion.cs" />
+    <Compile Include="Services\ViewService.cs" />
     <Compile Include="StoredProcedures\StudentDetailsDto.cs" />
+    <Compile Include="Views\ClassSubjectForTeacher.cs" />
+    <Compile Include="Views\StudentAttendance.cs" />
+    <Compile Include="Views\StudentClassDetails.cs" />
+    <Compile Include="Views\StudentGradesView.cs" />
+    <Compile Include="Views\StudentsByClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
