@@ -108,6 +108,12 @@
     <Compile Include="Apps\frmAddSubjectToClass.Designer.cs">
       <DependentUpon>frmAddSubjectToClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apps\frmAssignStudentMark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apps\frmAssignStudentMark.Designer.cs">
+      <DependentUpon>frmAssignStudentMark.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apps\frmAttendacesRecode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -347,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apps\frmAddSubjectToClass.resx">
       <DependentUpon>frmAddSubjectToClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apps\frmAssignStudentMark.resx">
+      <DependentUpon>frmAssignStudentMark.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apps\frmAttendacesRecode.resx">
       <DependentUpon>frmAttendacesRecode.cs</DependentUpon>

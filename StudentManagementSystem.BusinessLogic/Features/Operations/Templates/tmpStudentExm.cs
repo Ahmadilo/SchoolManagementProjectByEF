@@ -4,7 +4,6 @@ using StudentManagementSystem.DataAccess.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 namespace StudentManagementSystem.BusinessLogic.Features.Operations.Templates
 {

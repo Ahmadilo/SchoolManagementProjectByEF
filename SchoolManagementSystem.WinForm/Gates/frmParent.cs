@@ -128,5 +128,10 @@ namespace SchoolManagementSystem.WinForm.Gates
         {
             OpenChildForm(new frmClassAttendacesReport());
         }
+
+        private void assignMarkToStudentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmAssignStudentMark());
+        }
     }
 }
