@@ -61,6 +61,14 @@ namespace StudentManagementSystem.BusinessLogic.Activates
         public TimeSpan EndTime { get; set; }
         public string RoomNumber { get; set; }
 
+        public List<clsGrade> Marks 
+        {
+            get
+            {
+                return clsGrade.GetAllGrades().Where(g => g.ClassSubjectID == this.ID).ToList();
+            }
+        }
+
         public clsClassSubject()
         {
             IsNew = true;

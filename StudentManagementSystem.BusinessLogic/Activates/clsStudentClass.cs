@@ -11,10 +11,15 @@ namespace StudentManagementSystem.BusinessLogic.Activates
     public class clsStudentClass : clsBase<clsStudentClass>
     {
         private readonly StudentClassService _service = new StudentClassService();
+        private clsStudent _student = null;
+        private clsSchoolClass _class = null;
 
         public int StudentID { get; set; }
         public int ClassID { get; set; }
         public DateTime EnrollmentDate { get; set; }
+
+        public clsStudent Student { get => clsPublic.GetInstansOfID(ID: StudentID, obj: _student); }
+        public clsSchoolClass Class { get => clsPublic.GetInstansOfID(ID: ClassID, obj: _class); }
 
         public clsStudentClass()
         {
@@ -92,6 +97,11 @@ namespace StudentManagementSystem.BusinessLogic.Activates
         public static List<clsStudentClass> GetAllStudentClasses()
         {
             return new clsStudentClass().GetAll();
+        }
+
+        public static List<clsStudentClass> GetAllStudentClasses(Func<clsStudentClass, bool> func)
+        {
+            return GetAllStudentClasses().Where(func).ToList();
         }
 
         protected override bool _Add()

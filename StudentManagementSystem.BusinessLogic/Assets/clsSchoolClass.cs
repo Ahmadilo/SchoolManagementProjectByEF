@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using StudentManagementSystem.BusinessLogic.Activates;
+using StudentManagementSystem.BusinessLogic.Humans;
 using StudentManagementSystem.DataAccess.Models;
 using StudentManagementSystem.DataAccess.Services;
 
@@ -15,6 +16,19 @@ namespace StudentManagementSystem.BusinessLogic.Assets
         public int GradeLevel { get; set; }
         public string AcademicYear { get; set; }
         public int? TeacherID { get; set; }
+
+        public List<clsStudent> Students 
+        { 
+            get
+            {
+
+
+                return clsStudentClass
+                    .GetAllStudentClasses(sc => sc.ClassID == this.ID)
+                    .Select(sc => sc?.Student ?? null)
+                    .ToList();
+            }
+        }
 
         public List<clsClassSubject> PeriodsList
         {

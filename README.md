@@ -21,6 +21,7 @@ A comprehensive software system for managing school operations, developed indivi
 - ✅ Enroll student into a class (Add, Edit, Delete, View)
 - ✅ Assign subject to class with a teacher (Add, Edit, Delete, View)
 - ✅ Assign Attendentes to Students (Add, Edit)
+- ✅ Assign Marks to Students (Add, Edit[What Added in session])
 
 ### 📊 Reports
 - ✅ Student profile report (singel card or rows of cards)
@@ -36,6 +37,7 @@ A comprehensive software system for managing school operations, developed indivi
 
 | Task                                                  | Plan                            | Status |
 |-------------------------------------------------------|---------------------------------|--------|
+| Create Report Student Totle Grade                     | ReportTotleStudentsMarks.md     | 🔧     |
 | Create User Settings Page                             | UserSettings.md                 | ⏳     |
 | Create User Control: ucInputTable                     | unInputTable.md                 | ⏳     |
 | Implement Feature Control for Different Roles         | FeatureContrller.md             | ⏳     |
