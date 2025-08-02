@@ -11,7 +11,7 @@ namespace StudentManagementSystem.BusinessLogic.Humans
     public class clsPerson : clsBase<clsPerson>
     {
         private readonly PeopleService _peopleService = new PeopleService();
-        public int UserID { get; set; }
+        public int? UserID { get; set; } = null;
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
@@ -131,7 +131,7 @@ namespace StudentManagementSystem.BusinessLogic.Humans
             //public byte[] Photo { get; set; }
 
             this._id = person.PersonID;
-            this.UserID = person.UserID ?? -1; // Assuming UserID can be nullable
+            this.UserID = person.UserID; // Assuming UserID can be nullable
             this.FirstName = person.FirstName;
             this.LastName = person.LastName;
             this.DateOfBirth = person.DateOfBirth ?? DateTime.MinValue;

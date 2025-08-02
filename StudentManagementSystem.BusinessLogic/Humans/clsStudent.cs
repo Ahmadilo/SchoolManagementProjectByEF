@@ -26,12 +26,14 @@ namespace StudentManagementSystem.BusinessLogic.Humans
         }
         public string EnrollmentNumber { get; set; }
         public DateTime EnrollmentDate { get; set; }
-        public int ParentID { get; set; }
+        public int? ParentID { get; set; } = null;
         public clsPerson Parent
         {
             get
             {
-                return clsPublic.GetInstansOfID(ParentID, _parent);
+                if (ParentID == null || ParentID == -1)
+                    return null;
+                return clsPublic.GetInstansOfID(ParentID.Value, _parent);
             }
         }
         public int CurrentGradeLevel { get; set; }

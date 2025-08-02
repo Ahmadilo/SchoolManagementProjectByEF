@@ -17,8 +17,15 @@ namespace StudentManagementSystem.DataAccess.Services
             {
                 using (var db = new AppDbContext())
                 {
-                    db.Students.Add(student);
-                    db.SaveChanges();
+                    try
+                    {
+                        db.Students.Add(student);
+                        db.SaveChanges();
+                    }
+                    catch (Exception e)
+                    {
+                        Logger.LogError(ExceptionHelper.GetRootException(e).Message);
+                    }
                     return student.StudentID;  // بعد الحفظ يعيد رقم الطالب الجديد
                 }
             }

@@ -105,12 +105,20 @@ namespace StudentManagementSystem.DataAccess.Services
             {
                 using (var db = new AppDbContext())
                 {
-                    var staff = db.Staffs.Find(staffId);
-                    if (staff == null)
-                        return false;
+                    try
+                    {
+                        var staff = db.Staffs.Find(staffId);
+                        if (staff == null)
+                            return false;
 
-                    db.Staffs.Remove(staff);
-                    db.SaveChanges();
+                        db.Staffs.Remove(staff);
+                        db.SaveChanges();
+                    }
+                    catch(Exception ex)
+                    {
+                        Logger.LogError(ExceptionHelper.GetRootException(ex).Message);
+                        return false;
+                    }
                     return true;
                 }
             }
