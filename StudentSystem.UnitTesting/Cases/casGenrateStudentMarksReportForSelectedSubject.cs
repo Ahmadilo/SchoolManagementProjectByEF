@@ -9,6 +9,7 @@ using StudentManagementSystem.BusinessLogic.Humans;
 using StudentManagementSystem.BusinessLogic.Features.Roles;
 using System.Diagnostics;
 using StudentSystem.UnitTesting.BuesinessLogic;
+using StudentSystem.UnitTesting.DataGenrate;
 
 namespace StudentSystem.UnitTesting.Cases
 {
@@ -18,156 +19,53 @@ namespace StudentSystem.UnitTesting.Cases
         public int SubjectID { get; private set; }
         public int ClassID { get; private set; }
 
-        public void GenrateFakeData(int NumberOfStudents = 5)
+        private void GenrateFakeData(int NumberOfStudents = 5)
         {
             for (int i = 0; i < NumberOfStudents; i++)
             {
-                clsPerson newPerson = new clsPerson();
-
-                newPerson.FirstName = "John";
-                newPerson.LastName = "Doe";
-                newPerson.DateOfBirth = new DateTime(2000, 1, 1);
-                newPerson.Address = "123 Main St, Springfield, USA";
-
-                if (!newPerson.Save())
-                    throw new Exception(newPerson.ErrorMessages.FirstOrDefault());
-
-                clsContainer.FakePersons.Add(newPerson);
-
                 // Create a new student associated with the person
-                clsStudent newStudent = new clsStudent();
-                newStudent.PersonID = newPerson.ID;
-                newStudent.EnrollmentNumber = "ENT-" + Guid.NewGuid().ToString("N").Substring(0,12);
-                newStudent.CurrentGradeLevel = 1;
-
-                if (!newStudent.Save())
-                    throw new Exception(newStudent.ErrorMessages.FirstOrDefault());
-
-                clsContainer.FakeStudents.Add(newStudent);
+                clsDataGenrate.GenrateStudent();
             }
 
             // Create a subject
-            clsSubject newSubject = new clsSubject();
-
-            newSubject.SubjectName = "Mathematics";
-            newSubject.SubjectCode = "MATH" + Guid.NewGuid().ToString("N").Substring(0,3);
-            newSubject.Department = "Mathematics Department";
-            newSubject.Description = "Introduction to Mathematics";
-
-            if (!newSubject.Save())
-                throw new Exception(newSubject.ErrorMessages.FirstOrDefault());
-
-            clsContainer.FakeSubjects.Add(newSubject);
+            clsSubject newSubject = clsDataGenrate.GenrateSubject();
 
             // Create Class
 
-            clsSchoolClass newClass = new clsSchoolClass();
-
-            newClass.ClassName = "Math 101";
-            newClass.GradeLevel = 1;
-            newClass.AcademicYear = "2023-2024";
-
-            if (!newClass.Save())
-                throw new Exception(newClass.ErrorMessages.FirstOrDefault());
-
-            clsContainer.FakeClasses.Add(newClass);
+            clsSchoolClass newClass = clsDataGenrate.GenrateClass();
 
             // Enroll students in the class
 
 
             foreach (var student in clsContainer.FakeStudents)
             {
-                clsStudentClass classStudents = new clsStudentClass();
-                classStudents.StudentID = student.ID;
-                classStudents.ClassID = newClass.ID;
-
-                if (!classStudents.Save())
-                    throw new Exception(classStudents.ErrorMessages.FirstOrDefault());
-                clsContainer.FakeStudentClass.Add(classStudents);
+                clsStudentClass classStudents = clsDataGenrate.GenrateStudentClass(
+                    student.ID,
+                    newClass.ID
+                );
             }
-
-            // Create a Teacher
-
-            clsPerson teacherPerson = new clsPerson();
-            teacherPerson.FirstName = "Jane";
-            teacherPerson.LastName = "Smith";
-            teacherPerson.DateOfBirth = new DateTime(1985, 5, 15);
-            teacherPerson.Address = "456 Elm St, Springfield, USA";
-            teacherPerson.Email = "Jane@gmail.com";
-
-            if(!teacherPerson.Save())
-                throw new Exception(teacherPerson.ErrorMessages.FirstOrDefault());
-
-            clsContainer.FakePersons.Add(teacherPerson);
-
-            clsStaff newStaff = new clsStaff();
-
-            newStaff.PersonID = teacherPerson.ID;
-            newStaff.Department = "Mathematics Department";
-            newStaff.StaffNumber = "STF-" + new Random().Next(1000, 9999).ToString();
-
-            if (!newStaff.Save())
-                throw new Exception(newStaff.ErrorMessages.FirstOrDefault());
-
-            clsContainer.FakeStaffs.Add(newStaff);
-
-            clsTeacher newTeacher = new clsTeacher();
-
-            newTeacher.StaffID = newStaff.ID;
-            newTeacher.SubjectSpecialization = "Mathematics";
-
-            if (!newTeacher.Save())
-                throw new Exception(newTeacher.ErrorMessages.FirstOrDefault());
-
-            clsContainer.FakeTeachers.Add(newTeacher);
 
             // Assign subject to the class
 
-            clsClassSubject classSubject = new clsClassSubject();
-
-            classSubject.SubjectID = newSubject.ID;
-            classSubject.ClassID = newClass.ID;
-            classSubject.ScheduleDay = "Monday";
-            classSubject.StartTime = new TimeSpan(NumberOfStudents % 24, 0, 0); // Just a simple way to vary start time
-            classSubject.EndTime = new TimeSpan(Convert.ToInt32(TimeSpan.FromHours(1).TotalHours + NumberOfStudents % 24), 0, 0); // 1 hour duration
-            classSubject.TeacherID = newTeacher.ID;
-
-            if(!classSubject.Save())
-                throw new Exception(classSubject.ErrorMessages.FirstOrDefault());
-
-            clsContainer.FakeClassSubjects.Add(classSubject);
+            clsClassSubject classSubject = clsDataGenrate.GenrateClassSubject(SubjectID: newSubject.ID, ClassID: newClass.ID);
 
             // Generate marks for each student in the subject
 
             foreach(var student in clsContainer.FakeStudents)
             {
-                var Types = clsGradesRoles
-                    .GradeTypeRoles
-                    .Select(
-                        t => new 
-                        { 
-                            TypeName = t.Key.ToString(), 
-                            t.Value.Weight, 
-                            t.Value.MaxScore 
-                        }
-                    )
-                    .ToList();
+                var Types = clsDataGenrate.TypesMarks;
                 foreach(var type in Types)
                 {
-                    clsGrade newMark = new clsGrade();
-
-                    newMark.StudentID = student.ID;
-                    newMark.ClassSubjectID = classSubject.ID;
-                    newMark.GradeType = type.TypeName;
-                    newMark.GradeDate = DateTime.Today.AddDays(new Random().Next(-1000, -10));
-                    newMark.Score = new Random().Next(0, type.MaxScore + 1); // Random score between 0 and MaxScore
-                    newMark.MaxScore = type.MaxScore;
-                    newMark.Weight = type.Weight;
-
-                    if(!newMark.Save())
-                        throw new Exception(newMark.ErrorMessages.FirstOrDefault());
-
-                    clsContainer.FakeMarks.Add(newMark);
+                    clsGrade newMark = clsDataGenrate.GenrateGrade
+                        (
+                            StudentID: student.ID,
+                            ClassSubjectID: classSubject.ID,
+                            GradeType: type.TypeName,
+                            MaxScore: type.MaxScore,
+                            Score: new Random().Next(0, type.MaxScore + 1), // Random score between 0 and MaxScore
+                            Weight: type.Weight,
+                            Date: DateTime.Today.AddDays(new Random().Next(-1000, -10)).ToString()
+                        );
                 }
             }
 
