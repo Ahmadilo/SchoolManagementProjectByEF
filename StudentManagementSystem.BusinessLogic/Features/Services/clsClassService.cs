@@ -1,4 +1,5 @@
-﻿using StudentManagementSystem.BusinessLogic.Assets;
+﻿using Helper;
+using StudentManagementSystem.BusinessLogic.Assets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +55,9 @@ namespace StudentManagementSystem.BusinessLogic.Features.Services
 
         public static Dictionary<string, int> GetAllClasses()
         {
-            return clsSchoolClass.GetAllClasses().ToDictionary(c => c.ClassName, c => c.ID);
+            //var list = clsSchoolClass.GetAllClasses().Select(c => new { c.ClassName, c.ID }).Distinct().ToList();
+
+            return clsSchoolClass.GetAllClasses().Select(c => new {c.ClassName, c.ID}).Distinct().ToDictionary(c => c.ClassName, c => c.ID);
         }
     }
 }

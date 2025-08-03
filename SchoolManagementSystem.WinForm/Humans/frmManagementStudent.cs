@@ -160,9 +160,9 @@ namespace SchoolManagementSystem.WinForm.Humans
                 this.PersonID = Student.PersonID;
             }
 
-            if(clsPerson.Find(Student.ParentID) != null)
+            if(Student.ParentID.HasValue == true && clsPerson.Find(Student.ParentID.Value) != null)
             {
-                this.ParentID = Student.ParentID;
+                this.ParentID = Student.ParentID.Value;
             }
 
             txtEnrollmentNumber.Text = Student.EnrollmentNumber;

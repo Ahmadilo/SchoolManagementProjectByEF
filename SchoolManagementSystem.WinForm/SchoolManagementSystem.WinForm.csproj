@@ -246,6 +246,12 @@
     <Compile Include="Reports\frmStudentSelecter.Designer.cs">
       <DependentUpon>frmStudentSelecter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmStudentsMarksReportForSelectedSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmStudentsMarksReportForSelectedSubject.Designer.cs">
+      <DependentUpon>frmStudentsMarksReportForSelectedSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmStudentsReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -422,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmStudentSelecter.resx">
       <DependentUpon>frmStudentSelecter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmStudentsMarksReportForSelectedSubject.resx">
+      <DependentUpon>frmStudentsMarksReportForSelectedSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmStudentsReport.resx">
       <DependentUpon>frmStudentsReport.cs</DependentUpon>

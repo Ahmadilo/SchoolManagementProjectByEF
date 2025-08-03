@@ -52,7 +52,7 @@ namespace SchoolManagementSystem.WinForm.UserControls
 
             if (student.ParentID != -1)
             {
-                clsPerson parent = clsPerson.Find(student.ParentID);
+                clsPerson parent = clsPerson.Find(student.ParentID.Value);
                 lblParentName.Text = parent.FullName;
                 lblPhone.Text = parent.PhoneNumber;
             }

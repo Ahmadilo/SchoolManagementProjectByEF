@@ -133,5 +133,10 @@ namespace SchoolManagementSystem.WinForm.Gates
         {
             OpenChildForm(new frmAssignStudentMark());
         }
+        
+        private void subjectFullMarksReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmStudentsMarksReportForSelectedSubject());
+        }
     }
 }

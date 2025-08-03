@@ -66,12 +66,13 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuesinessLogic\ICase.cs" />
+    <Compile Include="BuesinessLogic\ICaseDeleteFakeData.cs" />
     <Compile Include="BuesinessLogic\Roles\GardeRoleUntTests.cs" />
     <Compile Include="BuesinessLogic\Services\ReportStudentMarksForSelectedSubjectUnitTest.cs" />
     <Compile Include="Cases\casGenrateStudentMarksReportForSelectedSubject.cs" />
     <Compile Include="Cases\clsContainer.cs" />
     <Compile Include="DataAccess\ViewUntiTest.cs" />
+    <Compile Include="DataGenrate\clsDataGenrate.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
